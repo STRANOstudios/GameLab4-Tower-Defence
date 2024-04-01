@@ -5,6 +5,10 @@ public class TurretMovement : MonoBehaviour
     [Header("Camera Settings")]
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] float viewSmoothFactor = 10f;
+    [SerializeField] float minVerticalAngle = -80f;
+    [SerializeField] float maxVerticalAngle = 80f;
+    [Space]
+    [SerializeField] Transform playerCamera;
 
     [Header("Debug")]
     [SerializeField] bool mouseBlock = false;
@@ -14,7 +18,7 @@ public class TurretMovement : MonoBehaviour
     private bool invertYAxis = false;
     private float verticalRotation;
 
-    private void Awake()
+    private void Start()
     {
         inputHandler = InputHandler.Instance;
     }
@@ -24,8 +28,6 @@ public class TurretMovement : MonoBehaviour
         HandlerRotation();
 
         if (mouseBlock) MouseBlock();
-
-        Debug.Log(inputHandler.LookInput);
     }
 
     void HandlerRotation()
@@ -36,9 +38,10 @@ public class TurretMovement : MonoBehaviour
 
         transform.Rotate(0, mouseXRotation, 0);
 
-        verticalRotation -= mouseYInput * mouseSensitivity;
+        verticalRotation -= mouseYInput * mouseSensitivity * viewSmoothFactor;
 
-        transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        playerCamera.localRotation = Quaternion.Euler(Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle), 0, 0);
+
     }
 
     void MouseBlock()

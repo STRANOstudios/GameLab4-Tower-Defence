@@ -426,7 +426,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 2.6
   viewSmoothFactor: 0.5
-  mouseBlock: 1
+  minVerticalAngle: -80
+  maxVerticalAngle: 80
+  playerCamera: {fileID: 1641702926}
+  mouseBlock: 0
 --- !u!1 &1383747772
 GameObject:
   m_ObjectHideFlags: 0

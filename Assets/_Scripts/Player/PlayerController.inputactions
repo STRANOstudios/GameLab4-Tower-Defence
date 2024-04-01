@@ -9,7 +9,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "72a91de9-9727-474b-8b4b-8f746a10d682",
-                    "expectedControlType": "Delta",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
