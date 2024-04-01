@@ -1,41 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class TurretMovement : MonoBehaviour
 {
-    Input input=null;
-    Vector2 Rotation;
-    [SerializeField] float rotationSpeed;
-    float xRot, yRot;
+    [Header("Camera Settings")]
+    [SerializeField] float mouseSensitivity = 100f;
+    [SerializeField] float viewSmoothFactor = 10f;
+
+    [Header("Debug")]
+    [SerializeField] bool mouseBlock = false;
+
+    private InputHandler inputHandler;
+
+    private bool invertYAxis = false;
+    private float verticalRotation;
 
     private void Awake()
     {
-        input=new Input();
-        Rotation= Vector2.zero;
+        inputHandler = InputHandler.Instance;
+    }
+
+    private void Update()
+    {
+        HandlerRotation();
+
+        if (mouseBlock) MouseBlock();
+
+        Debug.Log(inputHandler.LookInput);
+    }
+
+    void HandlerRotation()
+    {
+        float mouseYInput = invertYAxis ? -inputHandler.LookInput.y : inputHandler.LookInput.y;
+
+        float mouseXRotation = inputHandler.LookInput.x * mouseSensitivity * viewSmoothFactor;
+
+        transform.Rotate(0, mouseXRotation, 0);
+
+        verticalRotation -= mouseYInput * mouseSensitivity;
+
+        transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+    }
+
+    void MouseBlock()
+    {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-    private void OnEnable()
-    {
-        input.Enable();
-        input.Player.Movement.performed += SxDxRotation;
-    }
-    private void OnDisable()
-    {
-        input.Disable();
-        input.Player.Movement.performed -= SxDxRotation;
-    }
-
-    private void SxDxRotation(InputAction.CallbackContext value)
-    {
-        Rotation = value.ReadValue<Vector2>();
-        Rotation.Normalize();
-        Debug.Log(Rotation);
-        transform.Rotate(new Vector3(Rotation.y,Rotation.x,0));
-    }
-
-
-
 }
