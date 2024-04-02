@@ -26,8 +26,6 @@ public class PSManager : MonoBehaviour
         particleSystem.Play();
         nextTimeToShoot = Time.time + cooldownWindow;
 
-        Debug.Log("Shoot");
-
         if (audioSource && sound)
         {
             audioSource.Stop();
