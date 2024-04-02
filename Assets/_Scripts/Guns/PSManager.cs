@@ -12,7 +12,6 @@ public class PSManager : MonoBehaviour
     [Header("Audio Source")]
     [SerializeField] AudioClip sound;
 
-    private bool delay = false;
     private new ParticleSystem particleSystem;
     private float nextTimeToShoot = 0f;
     private AudioSource audioSource;
@@ -25,7 +24,7 @@ public class PSManager : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time < nextTimeToShoot || delay) return;
+        if (Time.time < nextTimeToShoot) return;
         particleSystem.Play();
         nextTimeToShoot = Time.time + cooldownWindow;
 
