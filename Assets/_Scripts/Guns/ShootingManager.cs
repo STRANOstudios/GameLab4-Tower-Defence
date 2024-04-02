@@ -6,8 +6,6 @@ public class ShootingManager : MonoBehaviour
     [Header("Particle System")]
     [SerializeField] List<PSManager> gun = new();
 
-    List<ParticleCollisionEvent> collisionEvents = new();
-
     private InputHandler inputHandler;
     private int index = 0;
 
