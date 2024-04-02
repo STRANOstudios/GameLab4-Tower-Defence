@@ -19,8 +19,19 @@ public class ShootingManager : MonoBehaviour
     private void Update()
     {
         Fire();
+        Scroll();
+    }
 
-        Debug.Log("Fire");
+    private void Scroll()
+    {
+        if (inputHandler.ScrollInput > 0)
+        {
+            index = index - 1 < 0 ? gun.Count - 1 : index - 1;
+        }
+        else if(inputHandler.ScrollInput < 0)
+        {
+            index = index + 1 >= gun.Count ? 0 : index + 1;
+        }
     }
 
     private void Fire()

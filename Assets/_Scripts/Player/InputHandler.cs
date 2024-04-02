@@ -21,7 +21,7 @@ public class InputHandler : MonoBehaviour
     private InputAction escapeAction;
 
     public Vector2 LookInput { get; private set; }
-    public Vector2 ScrollInput { get; private set; }
+    public float ScrollInput { get; private set; }
     public bool FireInput { get; private set; }
     public bool EscapeInput { get; private set; }
 
@@ -57,8 +57,8 @@ public class InputHandler : MonoBehaviour
         fireAction.performed += context => FireInput = true;
         fireAction.canceled += context => FireInput = false;
 
-        scrollAction.performed += context => ScrollInput = context.ReadValue<Vector2>();
-        scrollAction.canceled += context => ScrollInput = Vector2.zero;
+        scrollAction.performed += context => ScrollInput = context.ReadValue<float>();
+        scrollAction.canceled += context => ScrollInput = 0f;
 
         escapeAction.performed += context => EscapeInput = true;
         escapeAction.canceled += context => EscapeInput = false;

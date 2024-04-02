@@ -27,7 +27,7 @@
                     "name": "Scroll",
                     "type": "Value",
                     "id": "a2fba4f0-b76c-4c8d-94e5-fd002a0ac9d3",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -77,37 +77,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "7a4a8823-e6b9-4cad-abda-3fb2daf5b104",
-                    "path": "1DAxis",
+                    "name": "",
+                    "id": "ac8afbe6-e6c7-4041-a28e-627dd2640374",
+                    "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Scroll",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "fd84d524-a6f1-41a4-9ec6-4e5ed8a3695b",
-                    "path": "<Mouse>/scroll/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "8f0fad8c-9f46-414b-bc73-cf52d6f03963",
-                    "path": "<Mouse>/scroll/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 }
             ]
         }
