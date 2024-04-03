@@ -17,26 +17,20 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Gradient gradientDayToSunset;
     [SerializeField] private Gradient gradientSunsetToNight;
 
+    [Header("Time Settings")]
+    [SerializeField, Range(1, 24), Tooltip("In minutes")] private int lengthOfTheDay = 3;
+
     private int minuts;
-
-    public int Minuts { get => minuts; set { minuts = value; OnMinutesChange(value); } }
-
     private int hours;
 
-    public int Hours { get => hours; set { hours = value; OnHoursChange(value); } }
-
-    private int days;
-
-    public int Days { get => days; set => days = value; }
-
-    private float tempSecond;
+    private float tempSecond = 0;
 
     public void Update()
     {
-        tempSecond += Time.deltaTime;
+        tempSecond += Time.deltaTime * (1440 / (lengthOfTheDay * 60));
         if (tempSecond >= 1)
         {
-            minuts++;
+            Minuts++;
             tempSecond = 0;
         }
     }
@@ -46,13 +40,12 @@ public class TimeManager : MonoBehaviour
         globalLight.transform.Rotate(Vector3.up, (1f / 1440f) * 360f, Space.World);
         if (minuts >= 60)
         {
-            hours++;
-            minuts = 0;
+            Hours++;
+            Minuts = 0;
         }
         if (hours >= 24)
         {
-            days++;
-            hours = 0;
+            Hours = 0;
         }
     }
 
@@ -62,19 +55,19 @@ public class TimeManager : MonoBehaviour
         {
             case 6:
                 StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, 10f));
-                LerpLight(gradientNightToSunrise, 10f);
+                StartCoroutine(LerpLight(gradientNightToSunrise, 10f));
                 break;
             case 8:
                 StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, 10f));
-                LerpLight(gradientSunriseToDay, 10f);
+                StartCoroutine(LerpLight(gradientSunriseToDay, 10f));
                 break;
             case 18:
                 StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, 10f));
-                LerpLight(gradientDayToSunset, 10f);
+                StartCoroutine(LerpLight(gradientDayToSunset, 10f));
                 break;
             case 22:
                 StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, 10f));
-                LerpLight(gradientSunsetToNight, 10f);
+                StartCoroutine(LerpLight(gradientSunsetToNight, 10f));
                 break;
         }
     }
@@ -101,4 +94,7 @@ public class TimeManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public int Minuts { get => minuts; set { minuts = value; OnMinutesChange(value); } }
+    public int Hours { get => hours; set { hours = value; OnHoursChange(value); } }
 }
