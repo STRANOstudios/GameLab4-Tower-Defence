@@ -22,9 +22,11 @@ public class PSManager : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time < nextTimeToShoot) return;
+        if (Time.time < nextTimeToShoot && magazine > 0) return;
+
         particleSystem.Play();
         nextTimeToShoot = Time.time + cooldownWindow;
+        magazine--;
 
         if (audioSource && sound)
         {
@@ -33,4 +35,8 @@ public class PSManager : MonoBehaviour
             audioSource.Play();
         }
     }
+
+    public float Damage => damage;
+
+    public int Magazine { get { return magazine; /*reload UI method*/ } set { magazine = value; /*reload UI method*/ } }
 }
