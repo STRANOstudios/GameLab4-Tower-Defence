@@ -20,14 +20,23 @@ public class TimeManager : MonoBehaviour
     [Header("Time Settings")]
     [SerializeField, Range(1, 24), Tooltip("In minutes")] private int lengthOfTheDay = 3;
 
+    [Header("VFX")]
+    [SerializeField, Min(0)] private float transitionDuration = 10f;
+
     private int minuts;
     private int hours;
 
     private float tempSecond = 0;
+    private float timeScale;
+
+    private void Awake()
+    {
+        timeScale = 1440 / (lengthOfTheDay * 60);
+    }
 
     public void Update()
     {
-        tempSecond += Time.deltaTime * (1440 / (lengthOfTheDay * 60));
+        tempSecond += Time.deltaTime * timeScale;
         if (tempSecond >= 1)
         {
             Minuts++;
@@ -54,20 +63,20 @@ public class TimeManager : MonoBehaviour
         switch (value)
         {
             case 6:
-                StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, 10f));
-                StartCoroutine(LerpLight(gradientNightToSunrise, 10f));
+                StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientNightToSunrise, transitionDuration * timeScale));
                 break;
             case 8:
-                StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, 10f));
-                StartCoroutine(LerpLight(gradientSunriseToDay, 10f));
+                StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientSunriseToDay, transitionDuration * timeScale));
                 break;
             case 18:
-                StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, 10f));
-                StartCoroutine(LerpLight(gradientDayToSunset, 10f));
+                StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientDayToSunset, transitionDuration * timeScale));
                 break;
             case 22:
-                StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, 10f));
-                StartCoroutine(LerpLight(gradientSunsetToNight, 10f));
+                StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientSunsetToNight, transitionDuration * timeScale));
                 break;
         }
     }
@@ -77,7 +86,7 @@ public class TimeManager : MonoBehaviour
         RenderSettings.skybox.SetTexture("_Texture1", a);
         RenderSettings.skybox.SetTexture("_Texture2", a);
         RenderSettings.skybox.SetFloat("_Blend", 0);
-        for (float i = 0; i < time; i += Time.deltaTime)
+        for (float i = 0; i < time; i += Time.deltaTime * timeScale)
         {
             RenderSettings.skybox.SetFloat("_Blend", i / time);
             yield return null;
@@ -87,7 +96,7 @@ public class TimeManager : MonoBehaviour
 
     private IEnumerator LerpLight(Gradient lightGradient, float time)
     {
-        for (float i = 0; i < time; i += Time.deltaTime)
+        for (float i = 0; i < time; i += Time.deltaTime * timeScale)
         {
             globalLight.color = lightGradient.Evaluate(i / time);
             RenderSettings.fogColor = globalLight.color;

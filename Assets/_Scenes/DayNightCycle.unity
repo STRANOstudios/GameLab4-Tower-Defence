@@ -741,6 +741,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   lengthOfTheDay: 3
+  transitionDuration: 10
 --- !u!1 &788182547
 GameObject:
   m_ObjectHideFlags: 0
