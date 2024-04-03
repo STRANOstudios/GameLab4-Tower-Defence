@@ -37,6 +37,8 @@ public class ShootingManager : MonoBehaviour
         if (inputHandler.FireInput)
         {
             gun[index].Shoot();
+
+            Debug.Log("Fire");
         }
     }
 }

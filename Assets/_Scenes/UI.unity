@@ -347,7 +347,6 @@ GameObject:
   m_Component:
   - component: {fileID: 530148458}
   - component: {fileID: 530148461}
-  - component: {fileID: 530148460}
   - component: {fileID: 530148459}
   m_Layer: 0
   m_Name: Camera
@@ -415,14 +414,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &530148460
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530148457}
-  m_Enabled: 1
 --- !u!20 &530148461
 Camera:
   m_ObjectHideFlags: 0
@@ -5516,6 +5507,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 530148458}
+  - {fileID: 927637610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &850357220
@@ -5643,7 +5635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 814702349}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &927637611
 MonoBehaviour:
@@ -5961,7 +5953,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -11289,7 +11281,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 814702349}
-  - {fileID: 927637610}
   - {fileID: 850357221}
   - {fileID: 1740172519}
   - {fileID: 1884740888}
