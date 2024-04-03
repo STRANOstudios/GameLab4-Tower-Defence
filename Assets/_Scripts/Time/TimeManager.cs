@@ -17,26 +17,29 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Gradient gradientDayToSunset;
     [SerializeField] private Gradient gradientSunsetToNight;
 
+    [Header("Time Settings")]
+    [SerializeField, Range(1, 24), Tooltip("In minutes")] private int lengthOfTheDay = 3;
+
+    [Header("VFX")]
+    [SerializeField, Min(0)] private float transitionDuration = 10f;
+
     private int minuts;
-
-    public int Minuts { get => minuts; set { minuts = value; OnMinutesChange(value); } }
-
     private int hours;
 
-    public int Hours { get => hours; set { hours = value; OnHoursChange(value); } }
+    private float tempSecond = 0;
+    private float timeScale;
 
-    private int days;
-
-    public int Days { get => days; set => days = value; }
-
-    private float tempSecond;
+    private void Awake()
+    {
+        timeScale = 1440 / (lengthOfTheDay * 60);
+    }
 
     public void Update()
     {
-        tempSecond += Time.deltaTime;
+        tempSecond += Time.deltaTime * timeScale;
         if (tempSecond >= 1)
         {
-            minuts++;
+            Minuts++;
             tempSecond = 0;
         }
     }
@@ -46,13 +49,12 @@ public class TimeManager : MonoBehaviour
         globalLight.transform.Rotate(Vector3.up, (1f / 1440f) * 360f, Space.World);
         if (minuts >= 60)
         {
-            hours++;
-            minuts = 0;
+            Hours++;
+            Minuts = 0;
         }
         if (hours >= 24)
         {
-            days++;
-            hours = 0;
+            Hours = 0;
         }
     }
 
@@ -61,20 +63,20 @@ public class TimeManager : MonoBehaviour
         switch (value)
         {
             case 6:
-                StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, 10f));
-                LerpLight(gradientNightToSunrise, 10f);
+                StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientNightToSunrise, transitionDuration * timeScale));
                 break;
             case 8:
-                StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, 10f));
-                LerpLight(gradientSunriseToDay, 10f);
+                StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientSunriseToDay, transitionDuration * timeScale));
                 break;
             case 18:
-                StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, 10f));
-                LerpLight(gradientDayToSunset, 10f);
+                StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientDayToSunset, transitionDuration * timeScale));
                 break;
             case 22:
-                StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, 10f));
-                LerpLight(gradientSunsetToNight, 10f);
+                StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, transitionDuration * timeScale));
+                StartCoroutine(LerpLight(gradientSunsetToNight, transitionDuration * timeScale));
                 break;
         }
     }
@@ -84,7 +86,7 @@ public class TimeManager : MonoBehaviour
         RenderSettings.skybox.SetTexture("_Texture1", a);
         RenderSettings.skybox.SetTexture("_Texture2", a);
         RenderSettings.skybox.SetFloat("_Blend", 0);
-        for (float i = 0; i < time; i += Time.deltaTime)
+        for (float i = 0; i < time; i += Time.deltaTime * timeScale)
         {
             RenderSettings.skybox.SetFloat("_Blend", i / time);
             yield return null;
@@ -94,11 +96,14 @@ public class TimeManager : MonoBehaviour
 
     private IEnumerator LerpLight(Gradient lightGradient, float time)
     {
-        for (float i = 0; i < time; i += Time.deltaTime)
+        for (float i = 0; i < time; i += Time.deltaTime * timeScale)
         {
             globalLight.color = lightGradient.Evaluate(i / time);
             RenderSettings.fogColor = globalLight.color;
             yield return null;
         }
     }
+
+    public int Minuts { get => minuts; set { minuts = value; OnMinutesChange(value); } }
+    public int Hours { get => hours; set { hours = value; OnHoursChange(value); } }
 }
