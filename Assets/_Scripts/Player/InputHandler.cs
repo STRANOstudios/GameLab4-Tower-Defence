@@ -7,7 +7,8 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private InputActionAsset playerControls;
 
     [Header("Action Map Name Rederences")]
-    [SerializeField] private string actionMapName = "Input";
+    [SerializeField] private string actionMapNamePlayer = "Player";
+    [SerializeField] private string actionMapNameSystem = "System";
 
     [Header("Action Name Refernces")]
     [SerializeField] private string look = "Movement";
@@ -41,10 +42,10 @@ public class InputHandler : MonoBehaviour
 
         #endregion
 
-        lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
-        fireAction = playerControls.FindActionMap(actionMapName).FindAction(fire);
-        scrollAction = playerControls.FindActionMap(actionMapName).FindAction(scroll);
-        escapeAction = playerControls.FindActionMap(actionMapName).FindAction(escape);
+        lookAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(look);
+        fireAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(fire);
+        scrollAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(scroll);
+        escapeAction = playerControls.FindActionMap(actionMapNameSystem).FindAction(escape);
 
         RegisterInputActions();
     }
