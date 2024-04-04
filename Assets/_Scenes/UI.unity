@@ -347,7 +347,6 @@ GameObject:
   m_Component:
   - component: {fileID: 530148458}
   - component: {fileID: 530148461}
-  - component: {fileID: 530148460}
   - component: {fileID: 530148459}
   m_Layer: 0
   m_Name: Camera
@@ -415,14 +414,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &530148460
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530148457}
-  m_Enabled: 1
 --- !u!20 &530148461
 Camera:
   m_ObjectHideFlags: 0
@@ -5561,6 +5552,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1239579703380275715, guid: fd131603695275449ba987e2fd1ee4ed,
         type: 3}
+      propertyPath: SubModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239579703380275715, guid: fd131603695275449ba987e2fd1ee4ed,
+        type: 3}
       propertyPath: SubModule.subEmitters.Array.data[0].emitter
       value: 
       objectReference: {fileID: 1175327002}
@@ -5568,6 +5564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fighter Demon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787935937483583809, guid: fd131603695275449ba987e2fd1ee4ed,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6522567522880195887, guid: fd131603695275449ba987e2fd1ee4ed,
         type: 3}

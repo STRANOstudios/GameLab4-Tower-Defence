@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private void Awake()
     {
-        particleSystem = GetComponent<ParticleSystem>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
