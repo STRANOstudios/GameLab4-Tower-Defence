@@ -8,13 +8,14 @@ public class LifeManager : Hp
 
     public void TakeDamage(float damage)
     {
-        hp-= damage;
+        hp -= damage;
         Debug.Log("Hit");
     }
 
-    void OnCollisionEnter(Collision collision)
+
+    private void OnParticleCollision(GameObject other)
     {
-        Enemy enemydmg=collision.gameObject.GetComponent<Enemy>();
-        TakeDamage(enemydmg.GetDamage());
+        //Enemy enemy=other
+        //quando il nemico spara prendi danno
     }
 }
