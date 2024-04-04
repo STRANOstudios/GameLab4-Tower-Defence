@@ -5559,6 +5559,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1239579703380275715, guid: fd131603695275449ba987e2fd1ee4ed,
+        type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[0].emitter
+      value: 
+      objectReference: {fileID: 1175327002}
     - target: {fileID: 2152406586910165654, guid: fd131603695275449ba987e2fd1ee4ed,
         type: 3}
       propertyPath: m_Name
@@ -5577,7 +5582,7 @@ PrefabInstance:
     - target: {fileID: 6522567522880195887, guid: fd131603695275449ba987e2fd1ee4ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.93
+      value: 11.91
       objectReference: {fileID: 0}
     - target: {fileID: 6522567522880195887, guid: fd131603695275449ba987e2fd1ee4ed,
         type: 3}

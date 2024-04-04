@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class Enemy : ScriptableObject
+public class EnemyStats : ScriptableObject
 {
     public float speed;
     public float hp;

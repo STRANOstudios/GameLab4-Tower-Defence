@@ -9,7 +9,7 @@ public class LifeManager : Hp
     public void TakeDamage(float damage)
     {
         hp -= damage;
-        Debug.Log("Hit");
+        Debug.Log(hp);
     }
 
 
