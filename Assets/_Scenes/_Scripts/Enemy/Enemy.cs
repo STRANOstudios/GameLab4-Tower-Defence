@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private void Update()
     {
-        Attack();
         if (Vector3.Distance(transform.position, Vector3.zero)<=enemy.range)
         {
             rb.velocity=Vector3.zero;
@@ -63,7 +62,6 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     private void OnParticleCollision(GameObject other)
     {
-        currentHp--;
-
+       currentHp-=other.GetComponent<PSManager>().GetDamage();
     }
 }
