@@ -20,6 +20,11 @@ public class PSManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    public float  GetDamage()
+    {
+        return this.damage;
+    }
+
     public void Shoot()
     {
         if (Time.time < nextTimeToShoot && magazine > 0) return;
