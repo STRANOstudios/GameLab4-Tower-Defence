@@ -5,7 +5,7 @@ using UnityEngine;
 public class EmpDemon : Enemy
 {
     private delegate void EnemyDelegate(float enemy);
-    private event EnemyDelegate enemyDelegate;
+    private static event EnemyDelegate enemyDelegate = null;
 
     float lifetime;
     private void Awake()
@@ -17,8 +17,8 @@ public class EmpDemon : Enemy
     {
         lifetime -= Time.deltaTime;
         if (lifetime <= 0) {
+            enemyDelegate?.Invoke(enemy.inactiveGun);
             gameObject.SetActive(false);
-            enemyDelegate(enemy.inactiveGun);
         }
     }
 
