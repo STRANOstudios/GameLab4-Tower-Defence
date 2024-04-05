@@ -8,6 +8,7 @@ public class ShootingManager : MonoBehaviour
 
     private InputHandler inputHandler;
     private int index = 0;
+    private float unlockTime = 0;
 
     private void Start()
     {
@@ -18,6 +19,15 @@ public class ShootingManager : MonoBehaviour
     {
         Fire();
         Scroll();
+    }
+
+    private void OnEnable()
+    {
+        //lockweapon
+    }
+    private void OnDisable()
+    {
+        //lockweapon
     }
 
     private void Scroll()
@@ -34,9 +44,14 @@ public class ShootingManager : MonoBehaviour
 
     private void Fire()
     {
-        if (inputHandler.FireInput)
+        if (inputHandler.FireInput && Time.time > unlockTime)
         {
             gun[index].Shoot();
         }
+    }
+
+    private void lockWeapon(float delay)
+    {
+        unlockTime = Time.time + delay;
     }
 }
