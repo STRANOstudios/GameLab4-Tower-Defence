@@ -620,7 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   cooldownWindow: 0.5
-  magazine: 0
+  magazine: 100
   sound: {fileID: 0}
 --- !u!199 &788182550
 ParticleSystemRenderer:
@@ -5760,6 +5760,7 @@ GameObject:
   - component: {fileID: 1001007228}
   - component: {fileID: 1001007229}
   - component: {fileID: 1001007230}
+  - component: {fileID: 1001007232}
   - component: {fileID: 1001007231}
   m_Layer: 6
   m_Name: Player
@@ -5851,6 +5852,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1001007232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001007226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71de33e59155dc5428e1532bc4c061a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPersonCamera: {fileID: 1383747774}
+  smooth: 5
+  minZoom: 30
+  defaultZoom: 60
 --- !u!1 &1164377667
 GameObject:
   m_ObjectHideFlags: 0
@@ -11372,12 +11389,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88b08bbf45bbc54fa4c4758c8c94b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControls: {fileID: -944628639613478452, guid: ae8d026acce850f49bd17d9ad05c3430,
+  playerControls: {fileID: -944628639613478452, guid: 7acfd346c6918a64c8421180fa85e77a,
     type: 3}
-  actionMapName: Player
+  actionMapNamePlayer: Player
+  actionMapNameSystem: System
   look: Look
   fire: Fire
   scroll: Scroll
+  zoom: Zoom
   escape: Escape
 --- !u!1001 &2189117729553821545
 PrefabInstance:

@@ -1,10 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public abstract class Hp : MonoBehaviour
+public class Hp : MonoBehaviour
 {
-    [SerializeField] protected float hp;
-    void TakeDamage() { }
+    [SerializeField] private float hp = 100;
+
+    public delegate void Death();
+    public static event Death death;
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if(other.layer == 8)
+        {
+            hp -= other.GetComponent<Enemy>().Damage;
+            if(hp <= 0) death?.Invoke();
+        }
+    }
 }

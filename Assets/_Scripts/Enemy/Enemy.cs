@@ -63,4 +63,6 @@ public class Enemy : MonoBehaviour, IEnemy
     {
         currentHp -= other.GetComponent<PSManager>().GetDamage();
     }
+
+    public float Damage => enemy.damage;
 }
