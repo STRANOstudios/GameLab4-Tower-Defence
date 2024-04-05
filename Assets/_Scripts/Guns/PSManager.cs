@@ -27,7 +27,7 @@ public class PSManager : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time < nextTimeToShoot && magazine > 0) return;
+        if (Time.time < nextTimeToShoot || magazine < 1) return;
 
         particleSystem.Play();
         nextTimeToShoot = Time.time + cooldownWindow;

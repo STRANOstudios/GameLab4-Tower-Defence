@@ -23,11 +23,11 @@ public class ShootingManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //lockweapon
+        EmpDemon.enemyDelegate += lockWeapon;
     }
     private void OnDisable()
     {
-        //lockweapon
+        EmpDemon.enemyDelegate -= lockWeapon;
     }
 
     private void Scroll()
@@ -36,7 +36,7 @@ public class ShootingManager : MonoBehaviour
         {
             index = index - 1 < 0 ? gun.Count - 1 : index - 1;
         }
-        else if(inputHandler.ScrollInput < 0)
+        else if (inputHandler.ScrollInput < 0)
         {
             index = index + 1 >= gun.Count ? 0 : index + 1;
         }
