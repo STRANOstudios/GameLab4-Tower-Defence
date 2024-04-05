@@ -9,10 +9,10 @@ public class Hp : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if(other.layer == 8)
+        if (other.layer == 8)
         {
             hp -= other.GetComponent<Enemy>().Damage;
-            if(hp <= 0) death?.Invoke();
+            if (hp <= 0) death?.Invoke();
         }
     }
 }
