@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594f04434a44a3042a1d03c0df5b24f7, type: 3}
   m_Name: Fighter Demon
   m_EditorClassIdentifier: 
-  speed: 0.45
-  hp: 3
-  damage: 1
-  range: 2.7
-  coinDrop: 0
-  dropChance: 0
+  speed: 1
+  hp: 2
+  damage: 2
+  range: 3
+  coinDrop: 1
+  dropChance: 1
   attackCooldown: 1

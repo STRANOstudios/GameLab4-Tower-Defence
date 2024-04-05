@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     Rigidbody rb;
-    [SerializeField] EnemyStats enemy;
+    [SerializeField] protected EnemyStats enemy;
 
-    float currentHp;
+    protected float currentHp;
     float nextTimeToShoot = 0;
     [SerializeField]new ParticleSystem particleSystem;
 
