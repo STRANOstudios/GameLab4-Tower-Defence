@@ -8,7 +8,7 @@ public class TurretMovement : MonoBehaviour
     [SerializeField] float minVerticalAngle = -80f;
     [SerializeField] float maxVerticalAngle = 80f;
     [Space]
-    [SerializeField] Transform playerCamera;
+    [SerializeField] Transform container;
 
     [Header("Debug")]
     [SerializeField] bool mouseBlock = false;
@@ -40,7 +40,7 @@ public class TurretMovement : MonoBehaviour
 
         verticalRotation -= mouseYInput * mouseSensitivity * viewSmoothFactor;
 
-        playerCamera.localRotation = Quaternion.Euler(Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle), 0, 0);
+        container.localRotation = Quaternion.Euler(Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle), 0, 0);
 
     }
 

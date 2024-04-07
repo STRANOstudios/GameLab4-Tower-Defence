@@ -453,7 +453,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: d77fbe74c63738b40b96511b5afec843, type: 2}
   m_TargetDisplay: 0
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 630160357}
   - component: {fileID: 630160356}
   - component: {fileID: 630160355}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   cooldownWindow: 0.5
-  magazine: 0
+  magazine: 100
   sound: {fileID: 0}
 --- !u!199 &788182550
 ParticleSystemRenderer:
@@ -5565,6 +5565,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter Demon
       objectReference: {fileID: 0}
+    - target: {fileID: 2266085992513146018, guid: fd131603695275449ba987e2fd1ee4ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5787935937483583809, guid: fd131603695275449ba987e2fd1ee4ed,
         type: 3}
       propertyPath: m_Enabled
@@ -5759,7 +5764,8 @@ GameObject:
   - component: {fileID: 1001007227}
   - component: {fileID: 1001007228}
   - component: {fileID: 1001007229}
-  - component: {fileID: 1001007230}
+  - component: {fileID: 1001007233}
+  - component: {fileID: 1001007232}
   - component: {fileID: 1001007231}
   m_Layer: 6
   m_Name: Player
@@ -5798,10 +5804,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 2.6
-  viewSmoothFactor: 0.5
+  viewSmoothFactor: 0.1
   minVerticalAngle: -30
   maxVerticalAngle: 30
-  playerCamera: {fileID: 419458903}
+  container: {fileID: 419458903}
   mouseBlock: 1
 --- !u!114 &1001007229
 MonoBehaviour:
@@ -5817,19 +5823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun:
   - {fileID: 788182549}
---- !u!114 &1001007230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001007226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 394e741e3a854774fb209392ee1c323d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 10
 --- !u!65 &1001007231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5843,7 +5836,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 247
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -5851,6 +5844,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1001007232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001007226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71de33e59155dc5428e1532bc4c061a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPersonCamera: {fileID: 1383747774}
+  smooth: 5
+  minZoom: 30
+  defaultZoom: 60
+--- !u!114 &1001007233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001007226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f1728ed9e1dc944be437f9b1892ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!1 &1164377667
 GameObject:
   m_ObjectHideFlags: 0
@@ -10968,14 +10990,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -11372,13 +11394,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88b08bbf45bbc54fa4c4758c8c94b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControls: {fileID: -944628639613478452, guid: ae8d026acce850f49bd17d9ad05c3430,
+  playerControls: {fileID: -944628639613478452, guid: 7acfd346c6918a64c8421180fa85e77a,
     type: 3}
   actionMapNamePlayer: Player
   actionMapNameSystem: System
   look: Look
   fire: Fire
   scroll: Scroll
+  zoom: Zoom
   escape: Escape
 --- !u!1001 &2189117729553821545
 PrefabInstance:

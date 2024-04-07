@@ -14,16 +14,19 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string look = "Movement";
     [SerializeField] private string fire = "Fire";
     [SerializeField] private string scroll = "Scroll";
+    [SerializeField] private string zoom = "Zoom";
     [SerializeField] private string escape = "Escape";
 
     private InputAction lookAction;
     private InputAction fireAction;
     private InputAction scrollAction;
+    private InputAction zoomAction;
     private InputAction escapeAction;
 
     public Vector2 LookInput { get; private set; }
     public float ScrollInput { get; private set; }
     public bool FireInput { get; private set; }
+    public float ZoomInput { get; private set; }
     public bool EscapeInput { get; private set; }
 
     public static InputHandler Instance { get; private set; }
@@ -45,6 +48,8 @@ public class InputHandler : MonoBehaviour
         lookAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(look);
         fireAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(fire);
         scrollAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(scroll);
+        zoomAction = playerControls.FindActionMap(actionMapNamePlayer).FindAction(zoom);
+
         escapeAction = playerControls.FindActionMap(actionMapNameSystem).FindAction(escape);
 
         RegisterInputActions();
@@ -61,6 +66,9 @@ public class InputHandler : MonoBehaviour
         scrollAction.performed += context => ScrollInput = context.ReadValue<float>();
         scrollAction.canceled += context => ScrollInput = 0f;
 
+        zoomAction.performed += context => ZoomInput = context.ReadValue<float>();
+        zoomAction.canceled += context => ZoomInput = 0f;
+
         escapeAction.performed += context => EscapeInput = true;
         escapeAction.canceled += context => EscapeInput = false;
     }
@@ -70,6 +78,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Enable();
         fireAction.Enable();
         scrollAction.Enable();
+        zoomAction.Enable();
 
         escapeAction.Enable();
     }
@@ -79,6 +88,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Disable();
         fireAction.Disable();
         scrollAction.Disable();
+        zoomAction.Disable();
 
         escapeAction.Disable();
     }
