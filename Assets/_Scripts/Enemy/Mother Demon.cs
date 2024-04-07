@@ -10,9 +10,16 @@ public class MotherDemon : Enemy
     {
         if (currentHp<=0)
         {
+            GameObject child =ObjectPooler.instance.GetPooledObject();
             gameObject.SetActive(false);
-            //attiva figli 
-
+            for (int i = 0; i < numberOfChild; i++)
+            {
+                if (child != null)
+                {
+                    child.transform.position = transform.position;
+                    child.SetActive(true);
+                }
+            }
         }
     }
 }
