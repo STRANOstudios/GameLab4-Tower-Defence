@@ -1,12 +1,13 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEnemy
 {
-    Rigidbody rb;
+    protected Rigidbody rb;
     [SerializeField] protected EnemyStats enemy;
 
     protected float currentHp;
-    float nextTimeToShoot = 0;
+    protected float nextTimeToShoot = 0;
     [SerializeField] new ParticleSystem particleSystem;
 
     [SerializeField] AudioClip sound;
@@ -26,7 +27,9 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void Move()
     {
-        rb.velocity = transform.forward * enemy.speed;
+        float xz=Mathf.Sin(Time.time);
+        Vector3 direction = new Vector3(xz, 0f, 1);
+        rb.velocity =enemy.speed * direction;
     }
 
     public void Attack()

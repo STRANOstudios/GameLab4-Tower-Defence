@@ -8,6 +8,22 @@ public class MotherDemon : Enemy
 
     private void Update()
     {
+
+        if (Vector3.Distance(transform.position, Vector3.zero) <= enemy.range)
+        {
+            rb.velocity = Vector3.zero;
+            Attack();
+        }
+        else
+        {
+            Move();
+        }
+        if (currentHp <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+
+
         if (currentHp<=0)
         {
             GameObject child =ObjectPooler.instance.GetPooledObject();
