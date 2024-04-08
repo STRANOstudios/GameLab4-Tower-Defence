@@ -27,9 +27,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void Move()
     {
-        float xz=Mathf.Sin(Time.time);
-        Vector3 direction = new Vector3(xz, 0f, 1);
-        rb.velocity =enemy.speed * direction;
+        rb.velocity =enemy.speed *transform.forward;
     }
 
     public void Attack()

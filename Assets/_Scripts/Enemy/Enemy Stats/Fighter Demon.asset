@@ -17,5 +17,6 @@ MonoBehaviour:
   damage: 2
   range: 3
   coinDrop: 1
-  dropChance: 1
+  dropChance: 300
   attackCooldown: 1
+  inactiveGun: 0
