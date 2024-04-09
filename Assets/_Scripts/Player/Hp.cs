@@ -7,11 +7,16 @@ public class Hp : MonoBehaviour
     public delegate void Death();
     public static event Death death;
 
+    public delegate void Hit(float value);
+    public static event Hit hit = null;
+
     private void OnParticleCollision(GameObject other)
     {
         if (other.layer == 8)
         {
-            hp -= other.GetComponent<Enemy>().Damage;
+            hp -= other.transform.GetComponentInParent<Enemy>().Damage;
+            hit?.Invoke(hp);
+
             if (hp <= 0) death?.Invoke();
         }
     }
