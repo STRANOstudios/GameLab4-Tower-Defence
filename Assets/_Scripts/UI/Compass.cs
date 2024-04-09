@@ -1,24 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Compass : MonoBehaviour
 {
     [Header("Compass Settings")]
-    [SerializeField] float numberOfPixelsNorthToNorth;
-    [SerializeField] GameObject target;
+    [SerializeField] Transform player;
 
-    Vector3 startPosition;
-    float rationAngleToPixel;
+    RawImage compassImage;
 
-    void Start()
+    private void Start()
     {
-        startPosition = transform.position;
-        rationAngleToPixel = numberOfPixelsNorthToNorth / 360f;
+        compassImage = GetComponent<RawImage>();
     }
 
     void Update()
     {
-        Vector3 perp = Vector3.Cross(Vector3.forward, target.transform.forward);
-        float dir = Vector3.Dot(perp, Vector3.up);
-        transform.position = startPosition + (new Vector3(Vector3.Angle(target.transform.forward, Vector3.forward) * Mathf.Sign(dir) * rationAngleToPixel, 0, 0));
+        compassImage.uvRect = new Rect(player.localEulerAngles.y / 360f, 0f, 1f, 1f);
     }
 }
