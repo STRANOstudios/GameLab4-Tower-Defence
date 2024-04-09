@@ -4563,8 +4563,8 @@ MonoBehaviour:
   - {fileID: 7386989609817224707}
   - {fileID: 152031759}
   - {fileID: 2087414995}
-  movementSpeed: 10
-  movementSmooth: 10
+  movementSpeed: 5
+  movementSmooth: 5
   rotationSpeed: 0.1
   rotationSmooth: 0
   defaultSelectedObject: {fileID: 1167391406}
