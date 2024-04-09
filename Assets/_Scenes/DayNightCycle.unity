@@ -793,6 +793,7 @@ MonoBehaviour:
   damage: 10
   cooldownWindow: 0.5
   magazine: 100
+  infiniteMagazine: 0
   sound: {fileID: 0}
 --- !u!199 &788182550
 ParticleSystemRenderer:
@@ -5980,7 +5981,7 @@ MonoBehaviour:
   viewSmoothFactor: 0.5
   minVerticalAngle: -30
   maxVerticalAngle: 30
-  playerCamera: {fileID: 419458903}
+  container: {fileID: 419458903}
   mouseBlock: 1
 --- !u!114 &1001007229
 MonoBehaviour:
@@ -11545,6 +11546,7 @@ MonoBehaviour:
   look: Look
   fire: Fire
   scroll: Scroll
+  zoom: Zoom
   escape: Escape
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance { get; private set; }
+
+    [SerializeField] AudioClip music;
+
+    private AudioSource audioSource;
+
+    private void Awake()
     {
-        
+        #region Singleton
+
+        if (Instance != null)
+        {
+            Destroy(transform.root.gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(transform.root.gameObject);
+
+        #endregion
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = music;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayMusic(AudioClip clip)
     {
-        
+        audioSource.clip = clip;
     }
 }

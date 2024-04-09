@@ -6,6 +6,7 @@ public class PSManager : MonoBehaviour
     [SerializeField, Min(0)] float damage = 0f;
     [SerializeField, Min(0)] float cooldownWindow = 0.5f;
     [SerializeField, Min(0)] int magazine = 0;
+    [SerializeField, Tooltip("if is checked, the magazine will be infinite")] bool infiniteMagazine = false;
 
     [Header("Audio Source")]
     [SerializeField] AudioClip sound;
@@ -27,7 +28,7 @@ public class PSManager : MonoBehaviour
 
     public void Shoot()
     {
-        if (Time.time < nextTimeToShoot || magazine < 1) return;
+        if (Time.time < nextTimeToShoot || !(magazine > 0 || infiniteMagazine)) return;
 
         particleSystem.Play();
         nextTimeToShoot = Time.time + cooldownWindow;
