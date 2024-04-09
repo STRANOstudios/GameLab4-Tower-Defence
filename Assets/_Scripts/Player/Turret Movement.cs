@@ -10,24 +10,40 @@ public class TurretMovement : MonoBehaviour
     [Space]
     [SerializeField] Transform container;
 
-    [Header("Debug")]
-    [SerializeField] bool mouseBlock = false;
-
     private InputHandler inputHandler;
 
     private bool invertYAxis = false;
     private float verticalRotation;
+    private bool isPause = false;
 
     private void Start()
     {
         inputHandler = InputHandler.Instance;
+
     }
 
     private void Update()
     {
-        HandlerRotation();
+        if (isPause) return;
 
-        if (mouseBlock) MouseBlock();
+        HandlerRotation();
+    }
+
+    private void OnEnable()
+    {
+        LevelManager.pause += Pause;
+        GameplaySettings.settings += Settings;
+    }
+
+    private void OnDisable()
+    {
+        LevelManager.pause -= Pause;
+        GameplaySettings.settings -= Settings;
+    }
+
+    void Pause()
+    {
+        isPause = !isPause;
     }
 
     void HandlerRotation()
@@ -41,12 +57,11 @@ public class TurretMovement : MonoBehaviour
         verticalRotation -= mouseYInput * mouseSensitivity * viewSmoothFactor;
 
         container.localRotation = Quaternion.Euler(Mathf.Clamp(verticalRotation, minVerticalAngle, maxVerticalAngle), 0, 0);
-
     }
 
-    void MouseBlock()
+    void Settings(float controllerSen, bool invertY)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        invertYAxis = invertY;
+        mouseSensitivity = controllerSen;
     }
 }

@@ -39,6 +39,14 @@ public class MixerController : MonoBehaviour
         musicSlider.value = GetSavedFloat(sfxVolume);
     }
 
+    public void SetVolume(Slider slider)
+    {
+        mixer.SetFloat(slider.name, slider.value);
+
+        PlayerPrefs.SetFloat($"{slider.name}", slider.value);
+        PlayerPrefs.Save();
+    }
+
     public void SetSavedFloat(Slider slider)
     {
         mixer.SetFloat(slider.name, slider.value);
