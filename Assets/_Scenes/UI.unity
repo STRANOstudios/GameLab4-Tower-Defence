@@ -132,28 +132,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33397736}
-  - component: {fileID: 33397735}
+  - component: {fileID: 33397737}
   m_Layer: 0
-  m_Name: Child Demon Pooler
+  m_Name: Pooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &33397735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33397734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff80e19805b781b4f99a398024d7368a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfObjects: 10
-  enemy: {fileID: 1156527047356511649, guid: d528574760849d14499bc12d1bef825e, type: 3}
 --- !u!4 &33397736
 Transform:
   m_ObjectHideFlags: 0
@@ -169,6 +155,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33397737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33397734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e8d46bf594c10479cb98335b7f683e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfObjects: 30
+  enemy:
+  - {fileID: 3717391777893636969, guid: 2d00c40db1d2a5148a70c656a5ff352d, type: 3}
+  - {fileID: 5756768811636549352, guid: b5ec7eb95cd0cd94981042ad72df3e2f, type: 3}
+  - {fileID: 6586715186420982609, guid: 3bf8381c12a543448af69c9bffef2f14, type: 3}
+  - {fileID: 4817805622213297460, guid: 781d35e844a283f4b8fd58c79039e3c2, type: 3}
+  - {fileID: 1156527047356511649, guid: d528574760849d14499bc12d1bef825e, type: 3}
 --- !u!1 &57689866
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,10 +574,7 @@ MonoBehaviour:
   - 0
   - 0
   enemytospawnNumber: 0
-  pooler:
-  - {fileID: 638231562}
-  - {fileID: 2005991275}
-  - {fileID: 1485297371}
+  pooler: {fileID: 33397737}
 --- !u!1 &630160354
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,52 +680,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1884740888}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &638231562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 638231564}
-  - component: {fileID: 638231563}
-  m_Layer: 0
-  m_Name: Fighter Demon Pooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &638231563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638231562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511acd50a12dae94685d2812dfb86df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfObjects: 10
-  enemy: {fileID: 3717391777893636969, guid: 2d00c40db1d2a5148a70c656a5ff352d, type: 3}
---- !u!4 &638231564
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638231562}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788182547
 GameObject:
@@ -11231,98 +11187,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1485297371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1485297373}
-  - component: {fileID: 1485297372}
-  m_Layer: 0
-  m_Name: Emp Demon Pooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1485297372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485297371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511acd50a12dae94685d2812dfb86df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfObjects: 10
-  enemy: {fileID: 6586715186420982609, guid: 3bf8381c12a543448af69c9bffef2f14, type: 3}
---- !u!4 &1485297373
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485297371}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1623971728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1623971730}
-  - component: {fileID: 1623971729}
-  m_Layer: 0
-  m_Name: Mother Demon Pooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1623971729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623971728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511acd50a12dae94685d2812dfb86df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfObjects: 10
-  enemy: {fileID: 4817805622213297460, guid: 781d35e844a283f4b8fd58c79039e3c2, type: 3}
---- !u!4 &1623971730
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623971728}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641702922
 GameObject:
   m_ObjectHideFlags: 0
@@ -11556,52 +11420,6 @@ MonoBehaviour:
   scroll: Scroll
   zoom: Zoom
   escape: Escape
---- !u!1 &2005991275
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2005991277}
-  - component: {fileID: 2005991276}
-  m_Layer: 0
-  m_Name: Sniper Demon Pooler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2005991276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005991275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff80e19805b781b4f99a398024d7368a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfObjects: 10
-  enemy: {fileID: 1156527047356511649, guid: d528574760849d14499bc12d1bef825e, type: 3}
---- !u!4 &2005991277
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005991275}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11611,8 +11429,4 @@ SceneRoots:
   - {fileID: 1740172519}
   - {fileID: 1884740888}
   - {fileID: 33397736}
-  - {fileID: 638231564}
-  - {fileID: 2005991277}
-  - {fileID: 1623971730}
-  - {fileID: 1485297373}
   - {fileID: 547718308}

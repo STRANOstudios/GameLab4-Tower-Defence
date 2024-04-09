@@ -8,11 +8,11 @@ public class WaveManager : MonoBehaviour
     [SerializeField]EnemyStats[] enemy;
     [SerializeField]float[] percentuals=new float[5];
     [SerializeField]int enemytospawnNumber;
-    [SerializeField] ObjectPooler[] pooler;
+    [SerializeField] ObjectPooler pooler;
 
     private void Awake()
     {
-        FindPercentual(2);
+        FindPercentual(3);
     }
 
     public void FindPercentual(int x)
@@ -32,21 +32,25 @@ public class WaveManager : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            float perc = Random.Range(0f, 100f);
+            Debug.Log(i);
+            int perc = Random.Range(0, 101);
             float total = 0;
             for (int j = 0; j < x; j++)
             {
-                if (perc >= total || perc < percentuals[j]+total)
+                Debug.Log(perc);
+                if (perc >= total && perc < percentuals[j]+total)
                 {
-                    GameObject obj =pooler[j].GetPooledObject();
+                    GameObject obj =pooler.GetPooledObject(j);
                         if (obj != null)
                         {
                             obj.transform.position = Vector3.forward * 20;
                             obj.SetActive(true);
                         }
                 }
-                return;
-                total += percentuals[j];
+                else
+                {
+                    total += percentuals[j];
+                }
             }
         }
     }
@@ -58,14 +62,14 @@ public class WaveManager : MonoBehaviour
             switch (NumberOfWave)
             {
                 case int n when (n<5):
-                    CreateWave(2);
+                    CreateWave(3);
                     NumberOfWave++;
                     break;
                 case int n when(n<10):
                     NumberOfWave++;
                     break;
                 case int n when (n<15):
-                    FindPercentual(4);
+                    //FindPercentual(5);
                     NumberOfWave++;
                     break;
                 case int n when (n<29):

@@ -7,26 +7,36 @@ public class ObjectPooler : MonoBehaviour
 
     private List<GameObject> objects = new List<GameObject>();
     [SerializeField] int numberOfObjects=10;
+    public static ObjectPooler instance;
+    [SerializeField]GameObject[] enemy;
 
-    [SerializeField] GameObject enemy;
-
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
-        for (int i = 0; i < numberOfObjects; i++)
+        for (int i = 0; i < enemy.Length; i++)
         {
-            GameObject obj=Instantiate(enemy);
-            obj.SetActive(false);
-            objects.Add(obj);
+            for(int j=0;j<numberOfObjects; j++)
+            {
+                GameObject obj = Instantiate(enemy[i]);
+                obj.SetActive(false);
+                objects.Add(obj);
+            }
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(int x)
     {
         for(int i = 0;i < numberOfObjects; i++)
         {
-            if (!objects[i].activeInHierarchy)
+            if (!objects[(x*10)+i].activeInHierarchy)
             {
-                return objects[i];
+                return objects[(x * 10) + i];
             }          
         }
         return null;

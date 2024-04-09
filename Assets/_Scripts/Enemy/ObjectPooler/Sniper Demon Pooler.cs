@@ -4,14 +4,5 @@ using UnityEngine;
 
 public class SniperDemonPooler : ObjectPooler
 {
-    public static SniperDemonPooler instance;
 
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
 }
