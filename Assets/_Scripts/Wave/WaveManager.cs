@@ -8,7 +8,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField]EnemyStats[] enemy;
     [SerializeField]WaveStats[] wave;
     [SerializeField]float[] percentuals=new float[5];
-    [SerializeField] ObjectPooler pooler;
 
     private void Awake()
     {
@@ -22,61 +21,54 @@ public class WaveManager : MonoBehaviour
         {
             total += enemy[i].dropChance;
         }
+        float percentual=0;
         for(int i = 0; i < x; i++) {
-            percentuals[i] = (enemy[i].dropChance * 100) / total;
+            percentuals[i] = percentual+(enemy[i].dropChance * 100) / total;
+            percentual += (enemy[i].dropChance * 100) / total;
         }  
     }
-
-
-    void CreateWave(int x)
-    {
-        for (int i = 0; i < wave[NumberOfWave].NumberOfEnemy; i++)
-        {
-            Debug.Log(i);
-            int perc = Random.Range(0, 101);
-            float total = 0;
-            for (int j = 0; j < x; j++)
-            {
-                Debug.Log(perc);
-                if (perc >= total && perc < percentuals[j]+total)
-                {
-                    GameObject obj =pooler.GetPooledObject(j);
-                        if (obj != null)
-                        {
-                            obj.transform.position = Vector3.forward * 20;
-                            obj.SetActive(true);
-                            obj.GetComponent<Enemy>().enemyDie+= Check;
-                            break;
-
-                        }
-                }
-                else
-                {
-                    total += percentuals[j];
-                }
-            }
-        }
-    }
-
-
-    
     private void Start()
     {
         CreateWave(4);
     }
 
+    void CreateWave(int x)
+    {
+        for (int i = 0; i < wave[NumberOfWave].NumberOfEnemy; i++)
+        {
+            int perc = Random.Range(0, 101);
+            float total = 0;
+            Debug.Log(perc);
+            for (int j = 0; j < x; j++)
+            {
+                
+                if (perc < total + percentuals[j])
+                {
+                    GameObject obj = ObjectPooler.instance.GetPooledObject(j);
+                    if (obj != null)
+                    {
+                        obj.transform.position = Vector3.forward * 20;
+                        obj.SetActive(true);
+                        obj.GetComponent<Enemy>().enemyDie += Check;
+                    }
+                    break;
+                }
+                total += percentuals[j];
+            }
+        }
+    }
     private void Check(Enemy enemy)
     {
        enemy.enemyDie -= Check;
-       for (int i = 0;i<pooler.objects.Count;i++)
+       for (int i = 0;i<ObjectPooler.instance.objects.Count;i++)
         {
-            if (pooler.objects[i].activeInHierarchy)
+            if (ObjectPooler.instance.objects[i].activeInHierarchy)
             {
                 return;
             }
        }
         NumberOfWave++;
-       CreateWave(3);
+       CreateWave(4);
     }
 
 }

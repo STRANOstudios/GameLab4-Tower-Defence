@@ -32,11 +32,13 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject GetPooledObject(int x)
     {
-        for(int i = 0;i < numberOfObjects; i++)
+        for(int i = x*numberOfObjects;i < i+numberOfObjects; i++)
         {
-            if (!objects[(x*10)+i].activeInHierarchy)
+            //Debug.Log(i);
+            Debug.Log(x*numberOfObjects);
+            if (objects[i].activeInHierarchy==false)
             {
-                return objects[(x * 10) + i];
+                return objects[i];
             }          
         }
         return null;

@@ -26,7 +26,7 @@ public class MotherDemon : Enemy
 
         if (currentHp<=0)
         {
-            GameObject child =ChildDemonpooler.instance.GetPooledObject(4);
+            GameObject child =ObjectPooler.instance.GetPooledObject(4);
             gameObject.SetActive(false);
             for (int i = 0; i < numberOfChild; i++)
             {

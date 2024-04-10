@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3921f61546d52643b30fec1cc814012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWave: 15
+  NumberOfWave: 3
   enemy:
   - {fileID: 11400000, guid: 892ebf39d76177d4888b444950fb6ad6, type: 2}
   - {fileID: 11400000, guid: eb1e9057e0ffb34459621464478211d3, type: 2}
@@ -601,7 +601,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  pooler: {fileID: 33397737}
 --- !u!1 &630160354
 GameObject:
   m_ObjectHideFlags: 0
