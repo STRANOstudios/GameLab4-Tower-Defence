@@ -6,13 +6,13 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField]int NumberOfWave=0;
     [SerializeField]EnemyStats[] enemy;
+    [SerializeField]WaveStats[] wave;
     [SerializeField]float[] percentuals=new float[5];
-    [SerializeField]int enemytospawnNumber;
     [SerializeField] ObjectPooler pooler;
 
     private void Awake()
     {
-        FindPercentual(3);
+        FindPercentual(4);
     }
 
     public void FindPercentual(int x)
@@ -30,7 +30,7 @@ public class WaveManager : MonoBehaviour
 
     void CreateWave(int x)
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < wave[NumberOfWave].NumberOfEnemy; i++)
         {
             Debug.Log(i);
             int perc = Random.Range(0, 101);
@@ -45,6 +45,9 @@ public class WaveManager : MonoBehaviour
                         {
                             obj.transform.position = Vector3.forward * 20;
                             obj.SetActive(true);
+                            obj.GetComponent<Enemy>().enemyDie+= Check;
+                            break;
+
                         }
                 }
                 else
@@ -55,33 +58,25 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void Update()
-    {      
-        if (NumberOfWave<25)
-        {
-            switch (NumberOfWave)
-            {
-                case int n when (n<5):
-                    CreateWave(3);
-                    NumberOfWave++;
-                    break;
-                case int n when(n<10):
-                    NumberOfWave++;
-                    break;
-                case int n when (n<15):
-                    //FindPercentual(5);
-                    NumberOfWave++;
-                    break;
-                case int n when (n<29):
-                    NumberOfWave++;
-                    break;
-                case int n when (n<25):
-                    NumberOfWave++;
-                    break;
-                default:
-                    break;
-            }
-        }
-        
+
+    
+    private void Start()
+    {
+        CreateWave(4);
     }
+
+    private void Check(Enemy enemy)
+    {
+       enemy.enemyDie -= Check;
+       for (int i = 0;i<pooler.objects.Count;i++)
+        {
+            if (pooler.objects[i].activeInHierarchy)
+            {
+                return;
+            }
+       }
+        NumberOfWave++;
+       CreateWave(3);
+    }
+
 }

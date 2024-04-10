@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
 
-    private List<GameObject> objects = new List<GameObject>();
+    public List<GameObject> objects = new List<GameObject>();
     [SerializeField] int numberOfObjects=10;
     public static ObjectPooler instance;
     [SerializeField]GameObject[] enemy;

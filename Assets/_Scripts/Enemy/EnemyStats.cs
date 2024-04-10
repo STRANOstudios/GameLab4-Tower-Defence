@@ -14,6 +14,7 @@ public class EnemyStats : ScriptableObject
     public float dropChance;
     public float attackCooldown;
     public float inactiveGun;
+
 }
 
 

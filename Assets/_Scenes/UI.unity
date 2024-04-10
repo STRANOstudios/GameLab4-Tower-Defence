@@ -148,12 +148,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33397734}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 547718308}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &33397737
 MonoBehaviour:
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e8d46bf594c10479cb98335b7f683e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objects: []
   numberOfObjects: 30
   enemy:
   - {fileID: 3717391777893636969, guid: 2d00c40db1d2a5148a70c656a5ff352d, type: 3}
@@ -541,11 +542,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547718307}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 33397736}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &547718309
@@ -560,20 +562,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3921f61546d52643b30fec1cc814012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWave: 0
+  NumberOfWave: 15
   enemy:
+  - {fileID: 11400000, guid: 892ebf39d76177d4888b444950fb6ad6, type: 2}
   - {fileID: 11400000, guid: eb1e9057e0ffb34459621464478211d3, type: 2}
   - {fileID: 11400000, guid: 8ad3b749a5d2ca34f9f916cc4c305acc, type: 2}
-  - {fileID: 11400000, guid: 892ebf39d76177d4888b444950fb6ad6, type: 2}
   - {fileID: 11400000, guid: 97c610e66c1e8d644abd2b399c718439, type: 2}
-  - {fileID: 11400000, guid: fed7fddd542af084c9eae6be89a502dc, type: 2}
+  - {fileID: 11400000, guid: 1db5f9e5e31613e448f73f2373b8e029, type: 2}
+  wave:
+  - {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
+  - {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
+  - {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
+  - {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
+  - {fileID: 11400000, guid: e5b088518078eb64282fae195db75d71, type: 2}
+  - {fileID: 11400000, guid: e5b088518078eb64282fae195db75d71, type: 2}
+  - {fileID: 11400000, guid: e5b088518078eb64282fae195db75d71, type: 2}
+  - {fileID: 11400000, guid: e5b088518078eb64282fae195db75d71, type: 2}
+  - {fileID: 11400000, guid: e5b088518078eb64282fae195db75d71, type: 2}
+  - {fileID: 11400000, guid: 2aacc3402be02ec46a03a8ed70f58c68, type: 2}
+  - {fileID: 11400000, guid: 2aacc3402be02ec46a03a8ed70f58c68, type: 2}
+  - {fileID: 11400000, guid: 2aacc3402be02ec46a03a8ed70f58c68, type: 2}
+  - {fileID: 11400000, guid: 2aacc3402be02ec46a03a8ed70f58c68, type: 2}
+  - {fileID: 11400000, guid: 2aacc3402be02ec46a03a8ed70f58c68, type: 2}
+  - {fileID: 11400000, guid: bf40601a070ab7e42bc9939a6694efd1, type: 2}
+  - {fileID: 11400000, guid: bf40601a070ab7e42bc9939a6694efd1, type: 2}
+  - {fileID: 11400000, guid: bf40601a070ab7e42bc9939a6694efd1, type: 2}
+  - {fileID: 11400000, guid: bf40601a070ab7e42bc9939a6694efd1, type: 2}
+  - {fileID: 11400000, guid: bf40601a070ab7e42bc9939a6694efd1, type: 2}
+  - {fileID: 11400000, guid: c304d88515f43864abcbacd7b8f132ed, type: 2}
+  - {fileID: 11400000, guid: c304d88515f43864abcbacd7b8f132ed, type: 2}
+  - {fileID: 11400000, guid: c304d88515f43864abcbacd7b8f132ed, type: 2}
+  - {fileID: 11400000, guid: c304d88515f43864abcbacd7b8f132ed, type: 2}
+  - {fileID: 11400000, guid: c304d88515f43864abcbacd7b8f132ed, type: 2}
+  - {fileID: 11400000, guid: 3ba94d1a0bc170b4b9a1171d83e9d969, type: 2}
   percentuals:
   - 0
   - 0
   - 0
   - 0
   - 0
-  enemytospawnNumber: 0
   pooler: {fileID: 33397737}
 --- !u!1 &630160354
 GameObject:
@@ -5645,7 +5672,7 @@ Transform:
   m_GameObject: {fileID: 850357220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.383404, y: -2.8720448, z: 0.5025884}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5825,7 +5852,7 @@ MonoBehaviour:
   minVerticalAngle: -30
   maxVerticalAngle: 30
   container: {fileID: 419458903}
-  mouseBlock: 1
+  mouseBlock: 0
 --- !u!114 &1001007229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11428,5 +11455,4 @@ SceneRoots:
   - {fileID: 850357221}
   - {fileID: 1740172519}
   - {fileID: 1884740888}
-  - {fileID: 33397736}
   - {fileID: 547718308}
