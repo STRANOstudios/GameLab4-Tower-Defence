@@ -25,7 +25,7 @@ public class CowboyDemon : Enemy
         if (Vector3.Distance(transform.position, Vector3.zero) <= enemy.range)
         {
             Attack();
-            transform.Translate(new Vector3(Mathf.Sin(Random.Range(-1f, 1f)), 0, 0) * 10);
+            transform.Translate(new Vector3(Mathf.Sin(Random.Range(-1f, 1f)), 0, 0) * enemy.cowboyTeleport);
         }
         else
         {

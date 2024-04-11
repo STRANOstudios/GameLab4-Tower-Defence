@@ -67,8 +67,12 @@ public class Enemy : MonoBehaviour, IEnemy
     private void OnParticleCollision(GameObject other)
     {
         currentHp -= other.GetComponent<PSManager>().GetDamage();
+        if (other.tag == "Shocker")
+        {
 
+        }
     }
+
 
     public float Damage => enemy.damage;
 }
