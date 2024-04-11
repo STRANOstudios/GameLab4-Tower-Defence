@@ -6,6 +6,7 @@ using UnityEngine;
 public class WaveStats : ScriptableObject
 {
     public int NumberOfEnemy;
+    public float PowerUpDuration;
 
 
 

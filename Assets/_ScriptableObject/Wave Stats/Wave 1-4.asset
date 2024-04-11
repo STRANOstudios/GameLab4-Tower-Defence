@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c868cd289c58324cafc76e93df4f02f, type: 3}
   m_Name: Wave 1-4
   m_EditorClassIdentifier: 
-  NumberOfEnemy: 20
+  NumberOfEnemy: 4
+  PowerUpDuration: 5

@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField]EnemyStats[] enemy;
     [SerializeField]WaveStats[] wave;
     [SerializeField]float[] percentuals=new float[5];
+    [SerializeField] Canvas canvas;
 
     private void Awake()
     {
@@ -29,11 +30,12 @@ public class WaveManager : MonoBehaviour
     }
     private void Start()
     {
-        CreateWave(4);
+        StartCoroutine(CreateWave(4));
     }
 
-    void CreateWave(int x)
+    IEnumerator CreateWave(int x)
     {
+        yield return new WaitForSeconds(wave[NumberOfWave].PowerUpDuration);
         for (int i = 0; i < wave[NumberOfWave].NumberOfEnemy; i++)
         {
             int perc = Random.Range(0, 101);
@@ -48,6 +50,7 @@ public class WaveManager : MonoBehaviour
                     if (obj != null)
                     {
                         obj.transform.position = Vector3.forward * 20;
+                        //posizione portali
                         obj.SetActive(true);
                         obj.GetComponent<Enemy>().enemyDie += Check;
                     }
@@ -57,18 +60,21 @@ public class WaveManager : MonoBehaviour
             }
         }
     }
+
     private void Check(Enemy enemy)
     {
        enemy.enemyDie -= Check;
        for (int i = 0;i<ObjectPooler.instance.objects.Count;i++)
-        {
+       {
             if (ObjectPooler.instance.objects[i].activeInHierarchy)
             {
                 return;
             }
        }
         NumberOfWave++;
-       CreateWave(4);
+        canvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        StartCoroutine(CreateWave(4));
     }
 
 }
