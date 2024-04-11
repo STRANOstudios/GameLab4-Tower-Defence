@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594f04434a44a3042a1d03c0df5b24f7, type: 3}
-  m_Name: Emp Demon
+  m_Script: {fileID: 11500000, guid: 4c868cd289c58324cafc76e93df4f02f, type: 3}
+  m_Name: Wave 5-9
   m_EditorClassIdentifier: 
-  speed: 2
-  hp: 3
-  damage: 0
-  range: 0
-  coinDrop: 1
-  dropChance: 1
-  attackCooldown: 5
-  inactiveGun: 5
+  NumberOfEnemy: 25

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 594f04434a44a3042a1d03c0df5b24f7, type: 3}
-  m_Name: Fighter Demon
+  m_Name: Emp Demon
   m_EditorClassIdentifier: 
-  speed: 1
-  hp: 2
-  damage: 2
-  range: 3
+  speed: 2
+  hp: 3
+  damage: 0
+  range: 0
   coinDrop: 1
-  dropChance: 1
-  attackCooldown: 1
+  dropChance: 300
+  attackCooldown: 5
+  inactiveGun: 5

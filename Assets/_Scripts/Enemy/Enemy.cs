@@ -1,13 +1,17 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEnemy
 {
-    Rigidbody rb;
+    protected Rigidbody rb;
     [SerializeField] protected EnemyStats enemy;
 
     protected float currentHp;
-    float nextTimeToShoot = 0;
+    protected float nextTimeToShoot = 0;
     [SerializeField] new ParticleSystem particleSystem;
+
+    public delegate void EnemyDie(Enemy enemy);
+    public event EnemyDie enemyDie = null;
 
     [SerializeField] AudioClip sound;
     AudioSource audioSource;
@@ -18,15 +22,14 @@ public class Enemy : MonoBehaviour, IEnemy
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         currentHp = enemy.hp;
-        transform.LookAt(Vector3.zero);
     }
 
     public void Move()
     {
-        rb.velocity = transform.forward * enemy.speed;
+        rb.velocity =enemy.speed * transform.forward;
     }
 
     public void Attack()
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
     private void Update()
     {
+        transform.LookAt(Vector3.zero);
         if (Vector3.Distance(transform.position, Vector3.zero) <= enemy.range)
         {
             rb.velocity = Vector3.zero;
@@ -57,11 +61,13 @@ public class Enemy : MonoBehaviour, IEnemy
         if (currentHp <= 0)
         {
             gameObject.SetActive(false);
+            enemyDie.Invoke(this);
         }
     }
     private void OnParticleCollision(GameObject other)
     {
         currentHp -= other.GetComponent<PSManager>().GetDamage();
+
     }
 
     public float Damage => enemy.damage;
