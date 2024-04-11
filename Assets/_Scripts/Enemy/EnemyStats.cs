@@ -15,6 +15,7 @@ public class EnemyStats : ScriptableObject
     public float attackCooldown;
     public float inactiveGun;
     public float cowboyTeleport;
+    public float stunTime;
 
 }
 

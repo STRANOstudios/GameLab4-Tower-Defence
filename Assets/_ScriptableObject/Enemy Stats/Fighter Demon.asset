@@ -20,3 +20,5 @@ MonoBehaviour:
   dropChance: 300
   attackCooldown: 1
   inactiveGun: 0
+  cowboyTeleport: 0
+  stunTime: 3

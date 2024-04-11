@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] protected EnemyStats enemy;
 
     protected float currentHp;
+    protected float speedBackup;
     protected float nextTimeToShoot = 0;
     [SerializeField] new ParticleSystem particleSystem;
 
@@ -25,11 +27,13 @@ public class Enemy : MonoBehaviour, IEnemy
     private void OnEnable()
     {
         currentHp = enemy.hp;
+        speedBackup = enemy.speed;
     }
 
     public void Move()
     {
-        rb.velocity =enemy.speed * transform.forward;
+
+        rb.velocity =speedBackup * transform.forward;
     }
 
     public void Attack()
@@ -69,10 +73,17 @@ public class Enemy : MonoBehaviour, IEnemy
         currentHp -= other.GetComponent<PSManager>().GetDamage();
         if (other.tag == "Shocker")
         {
-
+            StartCoroutine(Stun());
         }
     }
 
+
+    IEnumerator Stun()
+    {
+        speedBackup = 0;
+        yield return new WaitForSeconds(enemy.stunTime);
+        speedBackup=enemy.speed;
+    }
 
     public float Damage => enemy.damage;
 }
