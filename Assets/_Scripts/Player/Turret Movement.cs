@@ -18,6 +18,7 @@ public class TurretMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         inputHandler = InputHandler.Instance;
 
     }
