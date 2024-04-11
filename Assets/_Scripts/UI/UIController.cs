@@ -33,6 +33,7 @@ public class UIController : MonoBehaviour
 
     void UpdateHealthBar(float health)
     {
+        if (health > healthbar.maxValue) healthbar.maxValue = health;
         healthbar.value = health;
     }
 

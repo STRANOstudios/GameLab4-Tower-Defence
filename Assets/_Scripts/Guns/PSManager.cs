@@ -21,7 +21,17 @@ public class PSManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public float  GetDamage()
+    private void OnEnable()
+    {
+
+    }
+
+    private void OnDisable()
+    {
+
+    }
+
+    public float GetDamage()
     {
         return this.damage;
     }
@@ -40,6 +50,11 @@ public class PSManager : MonoBehaviour
             audioSource.clip = sound;
             audioSource.Play();
         }
+    }
+
+    private void IncreaseDamageByPercentage(float percentage)
+    {
+        damage *= (percentage / 100f);
     }
 
     public float Damage => damage;

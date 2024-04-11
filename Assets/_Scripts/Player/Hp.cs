@@ -10,6 +10,16 @@ public class Hp : MonoBehaviour
     public delegate void Hit(float value);
     public static event Hit hit = null;
 
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+
+    }
+
     private void OnParticleCollision(GameObject other)
     {
         if (other.layer == 8)
@@ -19,5 +29,11 @@ public class Hp : MonoBehaviour
 
             if (hp <= 0) death?.Invoke();
         }
+    }
+
+    private void IncreaseHp(float value)
+    {
+        hp += value;
+        hit?.Invoke(hp);
     }
 }

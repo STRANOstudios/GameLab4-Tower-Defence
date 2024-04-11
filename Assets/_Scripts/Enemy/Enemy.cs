@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEnemy
@@ -8,6 +9,8 @@ public class Enemy : MonoBehaviour, IEnemy
     protected float currentHp;
     float nextTimeToShoot = 0;
     [SerializeField] new ParticleSystem particleSystem;
+
+    [SerializeField] float stunTime = 1f;
 
     [SerializeField] AudioClip sound;
     AudioSource audioSource;
