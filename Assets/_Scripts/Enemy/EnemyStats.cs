@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyStats : ScriptableObject
 {
+    public WaveStats wave;
     public float speed;
     public float hp;
     public float damage;
@@ -16,6 +17,13 @@ public class EnemyStats : ScriptableObject
     public float inactiveGun;
     public float cowboyTeleport;
     public float stunTime;
+
+    public void Increase()
+    {
+        hp += hp / 100 *wave.hpIncrease;
+        damage += damage / 100 * wave.attackIncrease;
+        speed += speed / 100 * wave.speedIncrease;
+    }
 
 }
 

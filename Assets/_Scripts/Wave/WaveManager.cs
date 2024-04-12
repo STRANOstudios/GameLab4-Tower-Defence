@@ -6,8 +6,10 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField]int NumberOfWave=0;
     [SerializeField]EnemyStats[] enemy;
-    [SerializeField]WaveStats[] wave;
+    [SerializeField]WaveStats wave;
+    [SerializeField] Transform[] portals;
     [SerializeField]float[] percentuals=new float[5];
+    [SerializeField] Canvas canvas;
 
     private void Awake()
     {
@@ -29,25 +31,28 @@ public class WaveManager : MonoBehaviour
     }
     private void Start()
     {
-        CreateWave(4);
+        StartCoroutine(CreateWave(enemy.Length));
     }
 
-    void CreateWave(int x)
+
+    IEnumerator CreateWave(int x)
     {
-        for (int i = 0; i < wave[NumberOfWave].NumberOfEnemy; i++)
+        yield return new WaitForSeconds(wave.timeBetweenWave);
+        for (int i = 0; i < wave.numberOfEnemy+(wave.enemyIncrease*NumberOfWave); i++)
         {
+            yield return new WaitForSeconds(wave.enemyTime);
             int perc = Random.Range(0, 101);
             float total = 0;
             Debug.Log(perc);
             for (int j = 0; j < x; j++)
             {
-                
+
                 if (perc < total + percentuals[j])
                 {
                     GameObject obj = ObjectPooler.instance.GetPooledObject(j);
                     if (obj != null)
                     {
-                        obj.transform.position = Vector3.forward * 20;
+                        obj.transform.position = portals[Random.Range(0,portals.Length)].position;
                         obj.SetActive(true);
                         obj.GetComponent<Enemy>().enemyDie += Check;
                     }
@@ -57,18 +62,25 @@ public class WaveManager : MonoBehaviour
             }
         }
     }
+
     private void Check(Enemy enemy)
     {
        enemy.enemyDie -= Check;
        for (int i = 0;i<ObjectPooler.instance.objects.Count;i++)
-        {
+       {
             if (ObjectPooler.instance.objects[i].activeInHierarchy)
             {
                 return;
             }
        }
         NumberOfWave++;
-       CreateWave(4);
+        for (int k = 0; k < this.enemy.Length; k++)
+        {
+            this.enemy[k].Increase();
+        }
+        //canvas.gameObject.SetActive(true);
+        //Time.timeScale = 0;
+        StartCoroutine(CreateWave(this.enemy.Length));
     }
 
 }

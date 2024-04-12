@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c868cd289c58324cafc76e93df4f02f, type: 3}
-  m_Name: Wave 5-9
+  m_Name: Wave
   m_EditorClassIdentifier: 
-  NumberOfEnemy: 25
+  numberOfEnemy: 5
+  timeBetweenWave: 2
+  enemyTime: 1
+  speedIncrease: 1
+  attackIncrease: 10
+  hpIncrease: 20
+  enemyIncrease: 1
