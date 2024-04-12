@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField]int NumberOfWave=0;
     [SerializeField]EnemyStats[] enemy;
     [SerializeField]WaveStats wave;
+    [SerializeField] Transform[] portals;
     [SerializeField]float[] percentuals=new float[5];
     [SerializeField] Canvas canvas;
 
@@ -51,8 +52,7 @@ public class WaveManager : MonoBehaviour
                     GameObject obj = ObjectPooler.instance.GetPooledObject(j);
                     if (obj != null)
                     {
-                        obj.transform.position = Vector3.forward * 20;
-                        //posizione portali
+                        obj.transform.position = portals[Random.Range(0,portals.Length)].position;
                         obj.SetActive(true);
                         obj.GetComponent<Enemy>().enemyDie += Check;
                     }
