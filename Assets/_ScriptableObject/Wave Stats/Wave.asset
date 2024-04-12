@@ -16,6 +16,6 @@ MonoBehaviour:
   timeBetweenWave: 2
   enemyTime: 1
   speedIncrease: 1
-  attackIncrease: 10
-  hpIncrease: 20
+  attackIncrease: 10.03
+  hpIncrease: 7
   enemyIncrease: 1

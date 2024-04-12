@@ -8,9 +8,11 @@ public class WaveStats : ScriptableObject
     public int numberOfEnemy;
     public float timeBetweenWave;
     public float enemyTime;
-    public float speedIncrease;
-    public float attackIncrease;
-    public float hpIncrease;
-    public float enemyIncrease;
+
+    [Header("The values are in percentual from 0 to 100")]
+    [Range(0, 100)] public float speedIncrease;
+    [Range(0, 100)] public float attackIncrease;
+    [Range(0, 100)] public float hpIncrease;
+    [Min (0)] public float enemyIncrease;
 
 }
