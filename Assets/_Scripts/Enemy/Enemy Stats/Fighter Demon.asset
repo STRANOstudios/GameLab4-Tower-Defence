@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Fighter Demon
   m_EditorClassIdentifier: 
   speed: 1
-  hp: 2
+  hp: 1
   damage: 2
   range: 3
   coinDrop: 1
   dropChance: 1
   attackCooldown: 1
+  inactiveGun: 0

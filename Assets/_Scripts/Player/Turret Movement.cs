@@ -19,7 +19,6 @@ public class TurretMovement : MonoBehaviour
     private void Start()
     {
         inputHandler = InputHandler.Instance;
-
     }
 
     private void Update()

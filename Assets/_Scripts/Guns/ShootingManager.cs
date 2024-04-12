@@ -9,6 +9,7 @@ public class ShootingManager : MonoBehaviour
     private InputHandler inputHandler;
     private int index = 0;
     private float unlockTime = 0;
+    private float buttonHoldStartTime;
 
     public delegate void Change(int value);
     public static event Change indexGun = null;
@@ -26,11 +27,11 @@ public class ShootingManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EmpDemon.enemyDelegate += lockWeapon;
+        EmpDemon.enemyDelegate += LockWeapon;
     }
     private void OnDisable()
     {
-        EmpDemon.enemyDelegate -= lockWeapon;
+        EmpDemon.enemyDelegate -= LockWeapon;
     }
 
     private void Scroll()
@@ -53,11 +54,24 @@ public class ShootingManager : MonoBehaviour
     {
         if (inputHandler.FireInput && Time.time > unlockTime)
         {
-            gun[index].Shoot();
+            if (gun[index] is Railgun railgun && Time.time - buttonHoldStartTime >= railgun.Recoil)
+            {
+                gun[index].Shoot();
+                buttonHoldStartTime = Time.time;
+            }
+            else if (!(gun[index] is Railgun))
+            {
+                gun[index].Shoot();
+                buttonHoldStartTime = 0f;
+            }
+        }
+        else
+        {
+            buttonHoldStartTime = Time.time;
         }
     }
 
-    private void lockWeapon(float delay)
+    private void LockWeapon(float delay)
     {
         unlockTime = Time.time + delay;
     }

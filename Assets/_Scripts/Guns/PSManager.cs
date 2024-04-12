@@ -23,7 +23,7 @@ public class PSManager : MonoBehaviour
 
     private void OnEnable()
     {
-
+        //IncreaseDamageByPercentage
     }
 
     private void OnDisable()
@@ -44,17 +44,22 @@ public class PSManager : MonoBehaviour
         nextTimeToShoot = Time.time + cooldownWindow;
         magazine--;
 
+        PlayAudio();
+    }
+
+    private void IncreaseDamageByPercentage(float percentage)
+    {
+        damage *= (percentage / 100f);
+    }
+
+    protected void PlayAudio()
+    {
         if (audioSource && sound)
         {
             audioSource.Stop();
             audioSource.clip = sound;
             audioSource.Play();
         }
-    }
-
-    private void IncreaseDamageByPercentage(float percentage)
-    {
-        damage *= (percentage / 100f);
     }
 
     public float Damage => damage;
