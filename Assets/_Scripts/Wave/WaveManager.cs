@@ -78,8 +78,8 @@ public class WaveManager : MonoBehaviour
         {
             this.enemy[k].Increase();
         }
-        //canvas.gameObject.SetActive(true);
-        //Time.timeScale = 0;
+        canvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         StartCoroutine(CreateWave(this.enemy.Length));
     }
 

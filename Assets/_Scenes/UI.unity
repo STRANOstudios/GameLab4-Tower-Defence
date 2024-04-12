@@ -7627,10 +7627,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1033002939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 1019.2157}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 965.34827, y: -288.6755}
+  m_SizeDelta: {x: 362.1393, y: 577.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465188162
 MonoBehaviour:
@@ -7675,7 +7675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 465188163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1416290758}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SpeedBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &465188163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7696,9 +7708,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8d77af5e945c04740a47e6dd06d2a14e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8506,10 +8518,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1033002939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 1019.2157}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 181.06964, y: -288.6755}
+  m_SizeDelta: {x: 362.1393, y: 577.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586101794
 MonoBehaviour:
@@ -8554,7 +8566,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 586101795}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1416290758}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: HealthBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &586101795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8575,9 +8599,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: aeff94882a346314c89077566d95d452, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -25293,10 +25317,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1033002939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 1019.2157}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 573.209, y: -288.6755}
+  m_SizeDelta: {x: 362.1393, y: 577.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902123384
 MonoBehaviour:
@@ -25341,7 +25365,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902123385}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1416290758}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: DamageBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &902123385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25362,9 +25398,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 07fdaa8ed78f51745a17342df5040e47, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -26279,10 +26315,10 @@ RectTransform:
   - {fileID: 465188161}
   m_Father: {fileID: 2030882270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.783, y: -19.607}
+  m_SizeDelta: {x: 1146.418, y: 577.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033002940
 MonoBehaviour:
@@ -26305,8 +26341,8 @@ MonoBehaviour:
   m_Spacing: 30
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -42729,6 +42765,7 @@ MonoBehaviour:
   health: 0
   damage: 0
   speed: 0
+  canvas: {fileID: 2030882269}
 --- !u!1 &1426129757
 GameObject:
   m_ObjectHideFlags: 0
@@ -59983,7 +60020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2030882267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60034,7 +60071,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1383747774}
   m_PlaneDistance: 0.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
