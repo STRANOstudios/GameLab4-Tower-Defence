@@ -12,7 +12,7 @@ public class ShootingManager : MonoBehaviour
     private float buttonHoldStartTime;
 
     public delegate void Change(int value);
-    public static event Change indexGun = null;
+    public static event Change IndexGun = null;
 
     private void Start()
     {
@@ -47,7 +47,7 @@ public class ShootingManager : MonoBehaviour
             index = index + 1 >= gun.Count ? 0 : index + 1;
         }
 
-        indexGun?.Invoke(index);
+        IndexGun?.Invoke(index);
     }
 
     private void Fire()
@@ -59,10 +59,9 @@ public class ShootingManager : MonoBehaviour
                 gun[index].Shoot();
                 buttonHoldStartTime = Time.time;
             }
-            else if (!(gun[index] is Railgun))
+            else if (gun[index] is not Railgun)
             {
                 gun[index].Shoot();
-                buttonHoldStartTime = 0f;
             }
         }
         else

@@ -21,14 +21,14 @@ public class UIController : MonoBehaviour
     {
         Hp.hit += UpdateHealthBar;
         Score.point += UpdateScore;
-        ShootingManager.indexGun += UpdateGuns;
+        ShootingManager.IndexGun += UpdateGuns;
     }
 
     private void OnDisable()
     {
         Hp.hit -= UpdateHealthBar;
         Score.point -= UpdateScore;
-        ShootingManager.indexGun -= UpdateGuns;
+        ShootingManager.IndexGun -= UpdateGuns;
     }
 
     void UpdateHealthBar(float health)
