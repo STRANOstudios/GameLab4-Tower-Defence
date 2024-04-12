@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594f04434a44a3042a1d03c0df5b24f7, type: 3}
   m_Name: Cowboy Demon
   m_EditorClassIdentifier: 
+  wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
   speed: 1
   hp: 1
   damage: 1
@@ -20,3 +21,5 @@ MonoBehaviour:
   dropChance: 0
   attackCooldown: 1
   inactiveGun: 0
+  cowboyTeleport: 0
+  stunTime: 0

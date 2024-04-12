@@ -5,9 +5,12 @@ using UnityEngine;
 [CreateAssetMenu]
 public class WaveStats : ScriptableObject
 {
-    public int NumberOfEnemy;
-    public float PowerUpDuration;
-
-
+    public int numberOfEnemy;
+    public float timeBetweenWave;
+    public float enemyTime;
+    public float speedIncrease;
+    public float attackIncrease;
+    public float hpIncrease;
+    public float enemyIncrease;
 
 }
