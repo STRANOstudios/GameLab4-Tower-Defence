@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class ShopManager : MonoBehaviour
     public static event SM Health = null;
     public static event SM Damage = null;
     public static event SM Speed = null;
+
+    public delegate void SM2();
+    public static event SM2 Return = null;
 
     public void HealthBtn()
     {
@@ -35,6 +39,9 @@ public class ShopManager : MonoBehaviour
     private void ReturnAtGame()
     {
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         canvas.gameObject.SetActive(false);
+        Return?.Invoke();
     }
 }

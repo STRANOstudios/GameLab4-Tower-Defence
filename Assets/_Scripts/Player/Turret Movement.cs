@@ -15,6 +15,7 @@ public class TurretMovement : MonoBehaviour
     private bool invertYAxis = false;
     private float verticalRotation;
     private bool isPause = false;
+    private bool isShopOpen = false;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class TurretMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isPause) return;
+        if (isPause || isShopOpen) return;
 
         HandlerRotation();
     }
@@ -33,17 +34,26 @@ public class TurretMovement : MonoBehaviour
     {
         LevelManager.pause += Pause;
         GameplaySettings.settings += Settings;
+        WaveManager.Shop += Shop;
+        ShopManager.Return += Shop;
     }
 
     private void OnDisable()
     {
         LevelManager.pause -= Pause;
         GameplaySettings.settings -= Settings;
+        WaveManager.Shop -= Shop;
+        ShopManager.Return -= Shop;
     }
 
     void Pause()
     {
         isPause = !isPause;
+    }
+
+    void Shop()
+    {
+        isShopOpen = !isShopOpen;
     }
 
     void HandlerRotation()
