@@ -59,7 +59,6 @@ public class ShootingManager : MonoBehaviour
         {
             if (gun[index] is Railgun railgun)
             {
-
                 RecoilValue?.Invoke(Time.time - buttonHoldStartTime);
 
                 if(Time.time - buttonHoldStartTime >= railgun.Recoil)
@@ -68,7 +67,7 @@ public class ShootingManager : MonoBehaviour
                     buttonHoldStartTime = Time.time;
                 }
             }
-            else if (gun[index] is not Railgun)
+            else
             {
                 gun[index].Shoot();
             }
