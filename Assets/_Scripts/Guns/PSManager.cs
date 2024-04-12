@@ -4,7 +4,7 @@ public class PSManager : MonoBehaviour
 {
     [Header("Gun Settings")]
     [SerializeField, Min(0)] float damage = 0f;
-    [SerializeField, Min(0)] float cooldownWindow = 0.5f;
+    [SerializeField, Min(0)] float fireRatio = 0.5f;
     [SerializeField, Min(0)] int magazine = 0;
     [SerializeField, Tooltip("if is checked, the magazine will be infinite")] bool infiniteMagazine = false;
 
@@ -23,12 +23,14 @@ public class PSManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //IncreaseDamageByPercentage
+        ShopManager.Damage += IncreaseDamageByPercentage;
+        ShopManager.Speed += DecreaseFireRatio;
     }
 
     private void OnDisable()
     {
-
+        ShopManager.Damage -= IncreaseDamageByPercentage;
+        ShopManager.Speed -= DecreaseFireRatio;
     }
 
     public float GetDamage()
@@ -41,7 +43,7 @@ public class PSManager : MonoBehaviour
         if (Time.time < nextTimeToShoot || !(magazine > 0 || infiniteMagazine)) return;
 
         particleSystem.Play();
-        nextTimeToShoot = Time.time + cooldownWindow;
+        nextTimeToShoot = Time.time + fireRatio;
         magazine--;
 
         PlayAudio();
@@ -50,6 +52,11 @@ public class PSManager : MonoBehaviour
     private void IncreaseDamageByPercentage(float percentage)
     {
         damage *= (percentage / 100f);
+    }
+
+    private void DecreaseFireRatio(float percentage)
+    {
+        fireRatio *= (percentage / 100f);
     }
 
     protected void PlayAudio()

@@ -12,12 +12,12 @@ public class Hp : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        ShopManager.Health += IncreaseHp;
     }
 
     private void OnDisable()
     {
-
+        ShopManager.Health -= IncreaseHp;
     }
 
     private void OnParticleCollision(GameObject other)
