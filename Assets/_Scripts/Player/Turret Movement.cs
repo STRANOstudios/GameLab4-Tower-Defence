@@ -20,7 +20,6 @@ public class TurretMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         inputHandler = InputHandler.Instance;
-
     }
 
     private void Update()

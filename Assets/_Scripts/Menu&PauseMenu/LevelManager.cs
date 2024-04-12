@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     [Header("Level Settings")]
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField, Tooltip("The name of the scene of main menu")] private string MainMenu;
 
     private InputHandler inputHandler;
 
@@ -25,11 +28,13 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         MenuController.resume += Resume;
+        Hp.death += Death;
     }
 
     private void OnDisable()
     {
         MenuController.resume -= Resume;
+        Hp.death -= Death;
     }
 
     private void Update()
@@ -69,5 +74,14 @@ public class LevelManager : MonoBehaviour
         pauseIsActive = false;
         yield return new WaitForSecondsRealtime(value);
         pauseIsActive = true;
+    }
+
+    private void Death()
+    {
+#if UNITY_EDITOR
+        SceneManager.LoadScene(MainMenu);
+#else
+        SceneManager.LoadScene(0);
+#endif
     }
 }
