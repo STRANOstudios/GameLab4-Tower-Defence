@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour, IEnemy
     float nextTimeToShoot = 0;
     [SerializeField] new ParticleSystem particleSystem;
 
-    [SerializeField] float stunTime = 1f;
-
     [SerializeField] AudioClip sound;
     AudioSource audioSource;
 

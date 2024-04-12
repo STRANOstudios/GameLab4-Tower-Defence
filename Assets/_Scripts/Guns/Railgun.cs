@@ -12,5 +12,20 @@ public class Railgun : PSManager
         redoilSlider.maxValue = recoil;
     }
 
+    private void OnEnable()
+    {
+        ShootingManager.RecoilValue += SliderUpdate;
+    }
+
+    private void OnDisable()
+    {
+        ShootingManager.RecoilValue -= SliderUpdate;
+    }
+
+    private void SliderUpdate(float value)
+    {
+        redoilSlider.value = value;
+    }
+
     public float Recoil => recoil;
 }

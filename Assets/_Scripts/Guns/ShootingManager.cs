@@ -14,6 +14,9 @@ public class ShootingManager : MonoBehaviour
     public delegate void Change(int value);
     public static event Change IndexGun = null;
 
+    public delegate void Recoil(float value);
+    public static event Recoil RecoilValue = null;
+
     private void Start()
     {
         inputHandler = InputHandler.Instance;
@@ -54,10 +57,16 @@ public class ShootingManager : MonoBehaviour
     {
         if (inputHandler.FireInput && Time.time > unlockTime)
         {
-            if (gun[index] is Railgun railgun && Time.time - buttonHoldStartTime >= railgun.Recoil)
+            if (gun[index] is Railgun railgun)
             {
-                gun[index].Shoot();
-                buttonHoldStartTime = Time.time;
+
+                RecoilValue?.Invoke(Time.time - buttonHoldStartTime);
+
+                if(Time.time - buttonHoldStartTime >= railgun.Recoil)
+                {
+                    gun[index].Shoot();
+                    buttonHoldStartTime = Time.time;
+                }
             }
             else if (gun[index] is not Railgun)
             {
@@ -67,6 +76,7 @@ public class ShootingManager : MonoBehaviour
         else
         {
             buttonHoldStartTime = Time.time;
+            RecoilValue?.Invoke(0);
         }
     }
 
