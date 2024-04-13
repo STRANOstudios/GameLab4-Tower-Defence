@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,32 +22,8 @@ public class GraphicsSettings : MonoBehaviour
 
     private void Start()
     {
-
         SetGraphics();
-
-        #region resolution dropdown values settings
-        resolutions = Screen.resolutions;
-
-        List<string> options = new();
-
-        int currentResolutionIndex = 0;
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-
-        resolutionDropdown.ClearOptions();
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-        #endregion
+        SetResolutionDropdown();
     }
 
     void OnEnable()
@@ -81,6 +58,40 @@ public class GraphicsSettings : MonoBehaviour
         });
     }
 
+    void SetResolutionDropdown()
+    {
+        resolutions = Screen.resolutions;
+
+        List<Resolution> tmp = new();
+        List<string> options = new();
+
+        int currentResolutionIndex = 0;
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+
+            if (options.Contains(option)) continue;
+
+            tmp.Add(resolutions[i]);
+
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        Array.Resize(ref resolutions, tmp.Count);
+        resolutions = tmp.ToArray();
+
+        resolutionDropdown.ClearOptions();
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+
     void SetBrightness(float value)
     {
         _brightnessLevel = (int)value;
@@ -111,10 +122,8 @@ public class GraphicsSettings : MonoBehaviour
     {
         brightnessSlider.value = GetSavedInt("Brightness") == 0 ? 211 : GetSavedInt("Brightness");
 
-        bool _isFullScreen = GetSavedInt("FullScreen") == 1;
-        fullScreenToggle.isOn = _isFullScreen;
-        Screen.fullScreen = _isFullScreen;
-
+        bool _isFullScreen = GetSavedInt("FullScreen") == 0;
+        fullScreenToggle.isOn = !_isFullScreen;
         Screen.SetResolution((int)GetSavedFloat("Resolution_width"), (int)GetSavedFloat("Resolution_height"), _isFullScreen);
     }
 
