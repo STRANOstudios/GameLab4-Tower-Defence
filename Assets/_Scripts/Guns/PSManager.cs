@@ -51,12 +51,12 @@ public class PSManager : MonoBehaviour
 
     private void IncreaseDamageByPercentage(float percentage)
     {
-        damage *= (percentage / 100f);
+        damage += (damage / 100f) *percentage;
     }
 
     private void DecreaseFireRatio(float percentage)
     {
-        fireRatio *= (percentage / 100f);
+        fireRatio -= (fireRatio / 100f)*percentage;
     }
 
     protected void PlayAudio()

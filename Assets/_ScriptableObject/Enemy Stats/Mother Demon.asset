@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
   speed: 7
-  hp: 8
-  damage: 7
+  initialHp: 1
+  initialDamage: 1
+  hp: 8.1
+  damage: 7.1
   range: 1
   coinDrop: 0
   dropChance: 50

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Boss Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 0
-  hp: 0
-  damage: 0
+  speed: 1
+  initialHp: 1
+  initialDamage: 1
+  hp: 0.1
+  damage: 0.1
   range: 0
   coinDrop: 0
   dropChance: 0
