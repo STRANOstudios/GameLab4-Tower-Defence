@@ -8,6 +8,8 @@ public class EnemyStats : ScriptableObject
 {
     public WaveStats wave;
     public float speed;
+    public float initialHp;
+    public float initialDamage;
     public float hp;
     public float damage;
     public float range;
@@ -18,11 +20,11 @@ public class EnemyStats : ScriptableObject
     public float cowboyTeleport;
     public float stunTime;
 
+
     public void Increase()
     {
-        hp += hp / 100 *wave.hpIncrease;
-        damage += damage / 100 * wave.attackIncrease;
-        speed += speed / 100 * wave.speedIncrease;
+        hp += initialDamage / 100 * wave.hpIncrease;
+        damage += initialDamage / 100 * wave.attackIncrease;
     }
 
 }

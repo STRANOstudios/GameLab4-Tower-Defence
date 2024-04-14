@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Emp Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 1.02
+  speed: 1
+  initialHp: 1
+  initialDamage: 1
   hp: 3
-  damage: 11
+  damage: 0
   range: 0
   coinDrop: 1
   dropChance: 300

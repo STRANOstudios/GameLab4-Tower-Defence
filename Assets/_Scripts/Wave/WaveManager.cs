@@ -48,7 +48,6 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(wave.enemyTime);
             int perc = Random.Range(0, 101);
             float total = 0;
-            Debug.Log(perc);
             for (int j = 0; j < x; j++)
             {
 

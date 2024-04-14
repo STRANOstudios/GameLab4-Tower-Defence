@@ -14027,14 +14027,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658657354}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1917526575}
   - {fileID: 444858565}
-  m_Father: {fileID: 1889207991}
+  m_Father: {fileID: 814702349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &674582675
 GameObject:
@@ -19561,6 +19561,7 @@ Transform:
   - {fileID: 530148458}
   - {fileID: 927637610}
   - {fileID: 1830995173}
+  - {fileID: 658657358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815930110
@@ -42815,9 +42816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe90e92f451d5468daf07c2fd8ba69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
-  speed: 0
+  health: 10
+  damage: 1
+  speed: 1
   canvas: {fileID: 2030882269}
 --- !u!1 &1426129757
 GameObject:
@@ -49841,7 +49842,6 @@ Transform:
   - {fileID: 788182548}
   - {fileID: 1902248912}
   - {fileID: 2133899523}
-  - {fileID: 658657358}
   m_Father: {fileID: 419458903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1902248908

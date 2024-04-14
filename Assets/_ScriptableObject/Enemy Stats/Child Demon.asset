@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
   speed: 7
+  initialHp: 1
+  initialDamage: 1
   hp: 7
   damage: 7
   range: 1

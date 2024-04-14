@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour, IEnemy
     protected Rigidbody rb;
     [SerializeField] protected EnemyStats enemy;
 
+    public float Damage=> enemy.damage;
     protected float currentHp;
     protected float speedBackup;
     protected float nextTimeToShoot = 0;
@@ -22,6 +23,11 @@ public class Enemy : MonoBehaviour, IEnemy
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
+    private void Start()
+    {
+        enemy.damage = enemy.initialDamage;
+        enemy.hp = enemy.initialHp;
+    }
 
     private void OnEnable()
     {
@@ -31,7 +37,6 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void Move()
     {
-
         rb.velocity =speedBackup * transform.forward;
     }
 
@@ -84,5 +89,4 @@ public class Enemy : MonoBehaviour, IEnemy
         speedBackup=enemy.speed;
     }
 
-    public float Damage => enemy.damage;
 }
