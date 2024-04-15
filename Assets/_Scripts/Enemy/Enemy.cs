@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IEnemy
+public class Enemy : MonoBehaviour
 {
     protected Rigidbody rb;
     [SerializeField] protected EnemyStats enemy;
@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour, IEnemy
     public delegate void EnemyDie(Enemy enemy);
     public event EnemyDie enemyDie = null;
 
-    [SerializeField] AudioClip sound;
-    AudioSource audioSource;
+    [SerializeField] protected AudioClip sound;
+    protected AudioSource audioSource;
 
     private void Awake()
     {
@@ -35,12 +35,12 @@ public class Enemy : MonoBehaviour, IEnemy
         speedBackup = enemy.speed;
     }
 
-    public void Move()
+    protected void Move()
     {
         rb.velocity =speedBackup * transform.forward;
     }
 
-    public void Attack()
+    protected void Attack()
     {
         if (Time.time < nextTimeToShoot) return;
         particleSystem.Play();
