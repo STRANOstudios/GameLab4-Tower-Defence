@@ -35,7 +35,7 @@ public class ObjectPooler : MonoBehaviour
         for(int i = x*numberOfObjects;i < i+numberOfObjects; i++)
         {
             //Debug.Log(i);
-            Debug.Log(x*numberOfObjects);
+            //Debug.Log(x*numberOfObjects);
             if (objects[i].activeInHierarchy==false)
             {
                 return objects[i];

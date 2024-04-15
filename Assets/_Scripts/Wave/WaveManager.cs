@@ -17,7 +17,7 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
-        FindPercentual(4);
+        FindPercentual(5);
     }
 
     public void FindPercentual(int x)
@@ -26,6 +26,7 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < x; i++)
         {
             total += enemy[i].dropChance;
+            Debug.Log(total);
         }
         float percentual = 0;
         for (int i = 0; i < x; i++)
@@ -46,12 +47,13 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < wave.numberOfEnemy + (wave.enemyIncrease * NumberOfWave); i++)
         {
             yield return new WaitForSeconds(wave.enemyTime);
-            int perc = Random.Range(0, 101);
+            int perc = Random.Range(0, 100);
             float total = 0;
+            Debug.Log(perc);
             for (int j = 0; j < x; j++)
             {
-
-                if (perc < total + percentuals[j])
+                total = percentuals[j];
+                if (perc < total)
                 {
                     GameObject obj = ObjectPooler.instance.GetPooledObject(j);
                     if (obj != null)
@@ -62,7 +64,6 @@ public class WaveManager : MonoBehaviour
                     }
                     break;
                 }
-                total += percentuals[j];
             }
         }
     }

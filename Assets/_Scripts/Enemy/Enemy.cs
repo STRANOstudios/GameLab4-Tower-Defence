@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour, IEnemy
         enemy.hp = enemy.initialHp;
     }
 
-    private void OnEnable()
+    public  virtual void OnEnable()
     {
         currentHp = enemy.hp;
         speedBackup = enemy.speed;
@@ -53,6 +53,8 @@ public class Enemy : MonoBehaviour, IEnemy
             audioSource.Play();
         }
     }
+
+
 
     private void Update()
     {

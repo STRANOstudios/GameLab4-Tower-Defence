@@ -16,9 +16,9 @@ MonoBehaviour:
   speed: 1
   initialHp: 1
   initialDamage: 1
-  hp: 3
-  damage: 0
-  range: 0
+  hp: 1
+  damage: 1
+  range: 1
   coinDrop: 1
   dropChance: 300
   attackCooldown: 5

@@ -6,36 +6,18 @@ public class MotherDemon : Enemy
 {
     [SerializeField] int numberOfChild;
 
-    private void Update()
+    private void OnDisable()
     {
-
-        if (Vector3.Distance(transform.position, Vector3.zero) <= enemy.range)
+        GameObject child = ObjectPooler.instance.GetPooledObject(6);
+        for (int i = 0; i < numberOfChild; i++)
         {
-            rb.velocity = Vector3.zero;
-            Attack();
-        }
-        else
-        {
-            Move();
-        }
-        if (currentHp <= 0)
-        {
-            gameObject.SetActive(false);
-        }
-
-
-        if (currentHp<=0)
-        {
-            GameObject child =ObjectPooler.instance.GetPooledObject(4);
-            gameObject.SetActive(false);
-            for (int i = 0; i < numberOfChild; i++)
+            if (child != null)
             {
-                if (child != null)
-                {
-                    child.transform.position = transform.position;
-                    child.SetActive(true);
-                }
+                child.transform.position = transform.position;
+                child.SetActive(true);
             }
         }
     }
 }
+
+
