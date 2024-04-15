@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
   speed: 1
-  initialHp: 1
+  initialHp: 5
   initialDamage: 1
-  hp: 1.3
-  damage: 1.1
+  hp: 5
+  damage: 1
   range: 3
   coinDrop: 1
-  dropChance: 300
+  dropChance: 10000
   attackCooldown: 1
   inactiveGun: 0
   cowboyTeleport: 0
-  stunTime: 3
+  stunTime: 4

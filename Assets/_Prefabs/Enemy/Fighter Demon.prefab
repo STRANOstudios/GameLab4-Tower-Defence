@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5975436566839041858}
   - component: {fileID: 7415300841475198542}
   - component: {fileID: 8394725481307481988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fighter Demon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,10 +62,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1015
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4989710615961071866}
   - component: {fileID: 4332739764998265647}
   - component: {fileID: 8752329295946344427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4998,7 +4998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2629396028798617714}
   - component: {fileID: 7713358689011763571}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5085,7 @@ GameObject:
   - component: {fileID: 2808655844123603661}
   - component: {fileID: 8275919774783229763}
   - component: {fileID: 673120930662983062}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5186,7 +5186,7 @@ GameObject:
   - component: {fileID: 6366650707792551374}
   - component: {fileID: 3217180501985216344}
   - component: {fileID: 642140049465537159}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
