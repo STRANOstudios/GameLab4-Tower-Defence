@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] int NumberOfWave = 0;
+    [SerializeField] int NumberOfWave = 1;
     [SerializeField] EnemyStats[] enemy;
     [SerializeField] WaveStats wave;
     [SerializeField] Transform[] portals;
@@ -14,6 +12,8 @@ public class WaveManager : MonoBehaviour
 
     public delegate void WM();
     public static event WM Shop = null;
+    public delegate void WMIndex(int value);
+    public static event WMIndex WaveIndex = null;
 
     private void Awake()
     {
@@ -35,15 +35,18 @@ public class WaveManager : MonoBehaviour
             percentual += (enemy[i].dropChance * 100) / total;
         }
     }
+
     private void Start()
     {
         StartCoroutine(CreateWave(enemy.Length));
     }
 
-
     IEnumerator CreateWave(int x)
     {
         yield return new WaitForSeconds(wave.timeBetweenWave);
+
+        WaveIndex?.Invoke(NumberOfWave);
+
         for (int i = 0; i < wave.numberOfEnemy + (wave.enemyIncrease * NumberOfWave); i++)
         {
             yield return new WaitForSeconds(wave.enemyTime);

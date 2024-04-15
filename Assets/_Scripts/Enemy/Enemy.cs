@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour, IEnemy
     private void OnParticleCollision(GameObject other)
     {
         currentHp -= other.GetComponent<PSManager>().GetDamage();
-        if (other.tag == "Shocker")
+        if (other.CompareTag("Shocker"))
         {
             StartCoroutine(Stun());
         }
