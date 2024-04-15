@@ -58,10 +58,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -337983269046342391, guid: a472ce9f5918fce47a2b01f69b9ea300,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -337983269046342391, guid: a472ce9f5918fce47a2b01f69b9ea300,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -337983269046342391, guid: a472ce9f5918fce47a2b01f69b9ea300,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a472ce9f5918fce47a2b01f69b9ea300,
         type: 3}
       propertyPath: m_Name
-      value: DEMONE_MAMMA_def1
+      value: DEMONE_MAMMA_1
       objectReference: {fileID: 0}
     - target: {fileID: 3186173083459297730, guid: a472ce9f5918fce47a2b01f69b9ea300,
         type: 3}

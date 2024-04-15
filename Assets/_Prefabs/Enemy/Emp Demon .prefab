@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3777652413746168752}
   - component: {fileID: 2480893727729561586}
   - component: {fileID: 2718381731492185996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8293024217645597354}
   - component: {fileID: 7580819742949502177}
   - component: {fileID: 7672197399815286293}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4983,7 +4983,7 @@ GameObject:
   - component: {fileID: 6536898843338434877}
   - component: {fileID: 2037114062204103534}
   - component: {fileID: 3109402894551274925}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5085,7 @@ GameObject:
   - component: {fileID: 7342082326513825471}
   - component: {fileID: 7335819900533866282}
   - component: {fileID: 7794324928831119438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'Emp Demon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5173,6 +5173,7 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: 8ad3b749a5d2ca34f9f916cc4c305acc, type: 2}
   particleSystem: {fileID: 7672197399815286293}
   sound: {fileID: 0}
+  lifetime: 0
 --- !u!1 &7492865180008480036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,7 +5185,7 @@ GameObject:
   - component: {fileID: 3565932404758210206}
   - component: {fileID: 96935233486756422}
   - component: {fileID: 1909436723271574866}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
