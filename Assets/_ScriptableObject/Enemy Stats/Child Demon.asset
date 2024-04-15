@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Child Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 7
-  initialHp: 1
-  initialDamage: 1
-  hp: 7
-  damage: 7
+  speed: 3.5
+  initialHp: 1.5
+  initialDamage: 4
+  hp: 1.5
+  damage: 4
   range: 1
   coinDrop: 0
   dropChance: 0
   attackCooldown: 1
   inactiveGun: 0
   cowboyTeleport: 0
-  stunTime: 0
+  stunTime: 4
