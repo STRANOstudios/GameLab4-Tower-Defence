@@ -19,7 +19,7 @@ public class CowboyDemon : Enemy
     //    transform.Translate(new Vector3(Mathf.Sin(Random.Range(-1f, 1f)), 0, 0)*10);
 
     //}
-    private void Update()
+    public override void Update()
     {
         transform.LookAt(Vector3.zero);
         if (Vector3.Distance(transform.position, Vector3.zero) <= enemy.range)

@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour, IEnemy
 
 
 
-    private void Update()
+    public virtual void Update()
     {
         transform.LookAt(Vector3.zero);
         if (Vector3.Distance(transform.position, Vector3.zero) <= enemy.range)
