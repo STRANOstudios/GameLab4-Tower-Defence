@@ -19,6 +19,7 @@ public class MixerController : MonoBehaviour
     private void Start()
     {
         SetMixerVolumes();
+        SetSliderVolumes();
     }
 
     void SetMixerVolumes()
@@ -34,9 +35,9 @@ public class MixerController : MonoBehaviour
     {
         masterSlider.value = GetSavedFloat(masterVolume);
 
-        sfxSlider.value = GetSavedFloat(musicVolume);
+        musicSlider.value = GetSavedFloat(musicVolume);
 
-        musicSlider.value = GetSavedFloat(sfxVolume);
+        sfxSlider.value = GetSavedFloat(sfxVolume);
     }
 
     public void SetVolume(Slider slider)
