@@ -8,7 +8,7 @@ public class MotherDemon : Enemy
 
     private void OnDisable()
     {
-        GameObject child = ObjectPooler.instance.GetPooledObject(6);
+        GameObject child = ObjectPooler.instance.GetPooledObject(5);
         for (int i = 0; i < numberOfChild; i++)
         {
             if (child != null)
