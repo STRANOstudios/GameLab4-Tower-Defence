@@ -30,6 +30,9 @@ public class MenuNavigation : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(defaultSelectedObject);
         }
+
+        if (menuPositions.Count < 1) return;
+
         switch (index)
         {
             case 0:
@@ -49,7 +52,7 @@ public class MenuNavigation : MonoBehaviour
         target.GetPositionAndRotation(out Vector3 targetPosition, out Quaternion targetRotation);
 
         menuCamera.transform.SetPositionAndRotation(
-            Vector3.SmoothDamp(menuCamera.transform.position, targetPosition, ref currentVelocity, 1f / (movementSpeed + movementSmooth), Mathf.Infinity, Time.deltaTime), 
+            Vector3.SmoothDamp(menuCamera.transform.position, targetPosition, ref currentVelocity, 1f / (movementSpeed + movementSmooth), Mathf.Infinity, Time.deltaTime),
             Quaternion.Lerp(menuCamera.transform.rotation, targetRotation, 1f / (rotationSpeed + rotationSmooth) * Time.deltaTime)
             );
     }
