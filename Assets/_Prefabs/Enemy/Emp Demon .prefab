@@ -5085,6 +5085,7 @@ GameObject:
   - component: {fileID: 7342082326513825471}
   - component: {fileID: 7335819900533866282}
   - component: {fileID: 7794324928831119438}
+  - component: {fileID: 1006155830491515350}
   m_Layer: 0
   m_Name: 'Emp Demon '
   m_TagString: Untagged
@@ -5173,6 +5174,20 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: 8ad3b749a5d2ca34f9f916cc4c305acc, type: 2}
   particleSystem: {fileID: 7672197399815286293}
   sound: {fileID: 0}
+  lifetime: 0
+--- !u!114 &1006155830491515350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6586715186420982609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9585538348ef54e9d267ebb8d07b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 10
 --- !u!1 &7492865180008480036
 GameObject:
   m_ObjectHideFlags: 0

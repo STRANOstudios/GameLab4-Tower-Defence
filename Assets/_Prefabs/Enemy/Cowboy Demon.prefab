@@ -5085,6 +5085,7 @@ GameObject:
   - component: {fileID: 7971937108590339198}
   - component: {fileID: 955953393773943404}
   - component: {fileID: 572433556621626909}
+  - component: {fileID: 5899940497210481834}
   m_Layer: 0
   m_Name: Cowboy Demon
   m_TagString: Untagged
@@ -5173,6 +5174,19 @@ MonoBehaviour:
   enemy: {fileID: 11400000, guid: fed7fddd542af084c9eae6be89a502dc, type: 2}
   particleSystem: {fileID: 3601727904930499251}
   sound: {fileID: 0}
+--- !u!114 &5899940497210481834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368882166333208108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9585538348ef54e9d267ebb8d07b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 150
 --- !u!1 &6667589961639474724
 GameObject:
   m_ObjectHideFlags: 0

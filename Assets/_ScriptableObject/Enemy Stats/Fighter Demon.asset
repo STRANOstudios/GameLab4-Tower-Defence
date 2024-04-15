@@ -16,11 +16,11 @@ MonoBehaviour:
   speed: 1
   initialHp: 5
   initialDamage: 1
-  hp: 5
-  damage: 1
+  hp: 5.1
+  damage: 1.1
   range: 3
   coinDrop: 1
-  dropChance: 10000
+  dropChance: 300
   attackCooldown: 1
   inactiveGun: 0
   cowboyTeleport: 0
