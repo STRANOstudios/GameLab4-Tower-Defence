@@ -1,10 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] AudioClip music;
+    [SerializeField] AudioClip mainMenu;
+    [SerializeField] AudioClip game;
 
     private AudioSource audioSource;
 
@@ -23,11 +25,22 @@ public class GameManager : MonoBehaviour
         #endregion
 
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = music;
+        PlayMusic();
     }
 
-    public void PlayMusic(AudioClip clip)
+    public void PlayMusic(bool value = false)
     {
-        audioSource.clip = clip;
+        if (audioSource && game && value)
+        {
+            audioSource.Stop();
+            audioSource.clip = game;
+            audioSource.Play();
+        }
+        else if (audioSource && mainMenu)
+        {
+            audioSource.Stop();
+            audioSource.clip = mainMenu;
+            audioSource.Play();
+        }
     }
 }

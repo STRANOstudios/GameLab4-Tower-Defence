@@ -83,5 +83,6 @@ public class LevelManager : MonoBehaviour
 #else
         SceneManager.LoadScene(0);
 #endif
+        GameManager.Instance.PlayMusic();
     }
 }

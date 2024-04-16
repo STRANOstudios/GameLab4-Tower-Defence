@@ -18,6 +18,7 @@ public class MenuController : MonoBehaviour
 #else
         SceneManager.LoadScene(1);
 #endif
+        GameManager.Instance.PlayMusic(true);
     }
 
     public void ExitButton()
@@ -36,6 +37,7 @@ public class MenuController : MonoBehaviour
 #else
         SceneManager.LoadScene(0);
 #endif
+        GameManager.Instance.PlayMusic();
     }
 
     public void ResumeButton()
