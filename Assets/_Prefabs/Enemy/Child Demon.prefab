@@ -112,10 +112,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5887301
+  m_Radius: 0.6351769
   m_Height: 1.6760192
   m_Direction: 1
-  m_Center: {x: 0, y: 0.6090325, z: 0.0887301}
+  m_Center: {x: -0.015670538, y: 0.6090325, z: 0.11950636}
 --- !u!1 &1538231086085877270
 GameObject:
   m_ObjectHideFlags: 0
@@ -5189,6 +5189,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1941914773330799504}
     m_Modifications:
+    - target: {fileID: 1436943569516209557, guid: 066e443fcd1ed164ab7dc69e6b00333a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1651633661553936592, guid: 066e443fcd1ed164ab7dc69e6b00333a,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5258,6 +5263,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: demone testa 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134733419554296426, guid: 066e443fcd1ed164ab7dc69e6b00333a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747024418067162826, guid: 066e443fcd1ed164ab7dc69e6b00333a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

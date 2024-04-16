@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: Mother Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 7
-  initialHp: 5
-  initialDamage: 1
-  hp: 5
-  damage: 1
-  range: 1
-  coinDrop: 0
-  dropChance: 300
-  attackCooldown: 0.5
+  speed: 0.8
+  initialHp: 6
+  initialDamage: 3
+  hp: 6
+  damage: 3
+  range: 2
+  dropChance: 15
+  attackCooldown: 2
   inactiveGun: 0
   cowboyTeleport: 0
   stunTime: 2

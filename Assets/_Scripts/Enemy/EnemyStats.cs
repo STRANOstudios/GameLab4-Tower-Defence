@@ -13,7 +13,6 @@ public class EnemyStats : ScriptableObject
     public float hp;
     public float damage;
     public float range;
-    public float coinDrop;
     public float dropChance;
     public float attackCooldown;
     public float inactiveGun;

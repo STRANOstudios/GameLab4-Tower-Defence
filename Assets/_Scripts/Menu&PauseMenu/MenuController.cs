@@ -9,6 +9,11 @@ public class MenuController : MonoBehaviour
     public delegate void Resume();
     public static event Resume resume;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     #region Menu Buttons
 
     public void PlayButton()

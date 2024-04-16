@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: Cowboy Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 1
+  speed: 1.5
   initialHp: 5
-  initialDamage: 1
-  hp: 5.2999997
-  damage: 1.3000001
+  initialDamage: 2
+  hp: 5
+  damage: 2
   range: 3
-  coinDrop: 0
-  dropChance: 300
-  attackCooldown: 1
+  dropChance: 15
+  attackCooldown: 3
   inactiveGun: 0
-  cowboyTeleport: 10
+  cowboyTeleport: 25
   stunTime: 4

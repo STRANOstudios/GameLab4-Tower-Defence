@@ -9,6 +9,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] Transform[] portals;
     [SerializeField] float[] percentuals = new float[5];
     [SerializeField] Canvas canvas;
+    [SerializeField]int arraylength=2;
+    bool boss = true;
 
     public delegate void WM();
     public static event WM Shop = null;
@@ -17,7 +19,7 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
-        FindPercentual(5);
+        FindPercentual(arraylength);
     }
 
     public void FindPercentual(int x)
@@ -26,7 +28,6 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < x; i++)
         {
             total += enemy[i].dropChance;
-            Debug.Log(total);
         }
         float percentual = 0;
         for (int i = 0; i < x; i++)
@@ -38,21 +39,40 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(CreateWave(enemy.Length));
+        StartCoroutine(CreateWave(arraylength));
     }
 
     IEnumerator CreateWave(int x)
     {
+        if (NumberOfWave == 8)
+        {
+            arraylength++;
+        }else if (NumberOfWave == 16)
+        {
+            arraylength++;
+        }
         yield return new WaitForSeconds(wave.timeBetweenWave);
 
         WaveIndex?.Invoke(NumberOfWave);
 
         for (int i = 0; i < wave.numberOfEnemy + (wave.enemyIncrease * NumberOfWave); i++)
         {
-            yield return new WaitForSeconds(wave.enemyTime);
+            yield return new WaitForSeconds(wave.enemyTime);      
             int perc = Random.Range(0, 100);
             float total = 0;
             Debug.Log(perc);
+            if (NumberOfWave % 10 == 0&&boss)
+            {
+                boss = false;
+                GameObject obj = ObjectPooler.instance.GetPooledObject(5);
+                if (obj != null)
+                {
+                    obj.transform.position = portals[Random.Range(0, portals.Length)].position;
+                    obj.SetActive(true);
+                    obj.GetComponent<Enemy>().enemyDie += Check;
+                }
+                continue;
+            }
             for (int j = 0; j < x; j++)
             {
                 total = percentuals[j];
@@ -82,14 +102,15 @@ public class WaveManager : MonoBehaviour
             }
         }
         NumberOfWave++;
-        for (int k = 0; k < this.enemy.Length; k++)
+        boss = true;
+        for (int k = 0; k < arraylength; k++)
         {
             this.enemy[k].Increase();
         }
 
         OpenShop();
 
-        StartCoroutine(CreateWave(this.enemy.Length));
+        StartCoroutine(CreateWave(arraylength));
     }
 
     private void OpenShop()

@@ -33,8 +33,8 @@ public class CowboyDemon : Enemy
         }
         if (currentHp <= 0)
         {
-            gameObject.SetActive(false);
             enemyDie.Invoke(this);
+            gameObject.SetActive(false);
         }
     }
 

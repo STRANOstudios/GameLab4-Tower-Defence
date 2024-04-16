@@ -13,15 +13,14 @@ MonoBehaviour:
   m_Name: Sniper Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 1.071
-  initialHp: 5
-  initialDamage: 1
+  speed: 0.8
+  initialHp: 4
+  initialDamage: 2
   hp: 5
   damage: 1
-  range: 3
-  coinDrop: 0
-  dropChance: 300
-  attackCooldown: 0
+  range: 9
+  dropChance: 25
+  attackCooldown: 3
   inactiveGun: 0
   cowboyTeleport: 0
   stunTime: 4
