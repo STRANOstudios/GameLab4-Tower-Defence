@@ -23865,7 +23865,7 @@ MonoBehaviour:
   globalLight: {fileID: 927637609}
   gradientNightToSunrise:
     serializedVersion: 2
-    key0: {r: 0, g: 0.14819956, b: 1, a: 1}
+    key0: {r: 0, g: 0.14819956, b: 0.92156863, a: 1}
     key1: {r: 1, g: 0.9430551, b: 0.5990566, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -42032,7 +42032,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0, g: 0.14901961, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.14901972, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -42923,7 +42923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3921f61546d52643b30fec1cc814012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfWave: 10
+  NumberOfWave: 1
   enemy:
   - {fileID: 11400000, guid: 892ebf39d76177d4888b444950fb6ad6, type: 2}
   - {fileID: 11400000, guid: eb1e9057e0ffb34459621464478211d3, type: 2}
