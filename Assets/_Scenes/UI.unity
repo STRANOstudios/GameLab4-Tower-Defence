@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3521173, g: 0.72388566, b: 0.9584319, a: 1}
+  m_IndirectSpecularColor: {r: 0.007875491, g: 0.029294485, b: 0.15386382, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20565,7 +20565,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   lengthOfTheDay: 3
-  transitionDuration: 10
+  transitionDuration: 2
 --- !u!1 &660030329
 GameObject:
   m_ObjectHideFlags: 0
@@ -37847,7 +37847,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0, g: 0.14901961, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -79469,7 +79469,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1996372988}
   - component: {fileID: 1996372985}
-  - component: {fileID: 1996372987}
   - component: {fileID: 1996372986}
   m_Layer: 0
   m_Name: Camera (UI)
@@ -79573,14 +79572,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1996372987
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996372984}
-  m_Enabled: 1
 --- !u!4 &1996372988
 Transform:
   m_ObjectHideFlags: 0

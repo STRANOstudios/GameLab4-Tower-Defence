@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField, Min(0)] private float transitionDuration = 10f;
 
     private int minuts;
-    private int hours;
+    private int hours = 0;
 
     private float tempSecond = 0;
     private float timeScale;
@@ -63,18 +63,22 @@ public class TimeManager : MonoBehaviour
         switch (value)
         {
             case 6:
+                StopAllCoroutines();
                 StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, transitionDuration * timeScale));
                 StartCoroutine(LerpLight(gradientNightToSunrise, transitionDuration * timeScale));
                 break;
             case 8:
+                StopAllCoroutines();
                 StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, transitionDuration * timeScale));
                 StartCoroutine(LerpLight(gradientSunriseToDay, transitionDuration * timeScale));
                 break;
             case 18:
+                StopAllCoroutines();
                 StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, transitionDuration * timeScale));
                 StartCoroutine(LerpLight(gradientDayToSunset, transitionDuration * timeScale));
                 break;
             case 22:
+                StopAllCoroutines();
                 StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, transitionDuration * timeScale));
                 StartCoroutine(LerpLight(gradientSunsetToNight, transitionDuration * timeScale));
                 break;
@@ -84,13 +88,15 @@ public class TimeManager : MonoBehaviour
     private IEnumerator LerpSkybox(Texture2D a, Texture2D b, float time)
     {
         RenderSettings.skybox.SetTexture("_Texture1", a);
-        RenderSettings.skybox.SetTexture("_Texture2", a);
+        RenderSettings.skybox.SetTexture("_Texture2", b);
         RenderSettings.skybox.SetFloat("_Blend", 0);
+
         for (float i = 0; i < time; i += Time.deltaTime * timeScale)
         {
             RenderSettings.skybox.SetFloat("_Blend", i / time);
             yield return null;
         }
+
         RenderSettings.skybox.SetTexture("_Texture1", b);
     }
 
