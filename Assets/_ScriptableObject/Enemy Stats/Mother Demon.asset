@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Mother Demon
   m_EditorClassIdentifier: 
   wave: {fileID: 11400000, guid: a40e4192a7ab897429722c72a1c7344a, type: 2}
-  speed: 7
+  speed: 1.5
   initialHp: 5
   initialDamage: 1
-  hp: 5.2
-  damage: 1.2
+  hp: 5.2999997
+  damage: 1.3000001
   range: 1
   coinDrop: 0
   dropChance: 300
