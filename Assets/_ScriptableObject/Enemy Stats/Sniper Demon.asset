@@ -18,10 +18,10 @@ MonoBehaviour:
   initialDamage: 1
   hp: 5
   damage: 1
-  range: 10
+  range: 3
   coinDrop: 0
-  dropChance: 1000
-  attackCooldown: 4
+  dropChance: 300
+  attackCooldown: 0
   inactiveGun: 0
   cowboyTeleport: 0
   stunTime: 4
