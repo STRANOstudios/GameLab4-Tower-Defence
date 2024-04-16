@@ -55351,11 +55351,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 764319102}
   healthbar: {fileID: 1789618034}
+  wavesCount: {fileID: 0}
   guns:
   - {fileID: 114030499}
   - {fileID: 1906686118}
   - {fileID: 288621087}
   - {fileID: 556495745}
+  gunsFlags: []
+  gunsFlagsActive: []
+  indentationSize: 0
 --- !u!1 &1561250395
 GameObject:
   m_ObjectHideFlags: 0
